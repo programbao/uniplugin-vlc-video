@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:1-89:12
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:1-89:12
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:1-89:12
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:1-89:12
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:1-89:12
 MERGED from [android-gif-drawable-release@1.2.23.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\6340ab3b62f23c964870dc1673c3b0f1\jetified-android-gif-drawable-release@1.2.23\AndroidManifest.xml:2:1-9:12
 MERGED from [breakpad-build-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\9ebfe1c2ab737b5274cd67721b9e7dcd\jetified-breakpad-build-release\AndroidManifest.xml:2:1-9:12
 MERGED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:2:1-280:12
@@ -11,7 +11,7 @@ MERGED from [libvlc-all-3.3.1.aar] C:\Users\User\.gradle\caches\transforms-2\fil
 MERGED from [oaid_sdk_1.0.25.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\cb3ac3fc40be5e28d038fada210414e1\jetified-oaid_sdk_1.0.25\AndroidManifest.xml:2:1-17:12
 MERGED from [uniapp-v8-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\b1478f71ad55c7a8062c61656e327b85\jetified-uniapp-v8-release\AndroidManifest.xml:20:1-37:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\c85e1f195321245fafe1a599b5dddf47\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [:uniplugin_vlcVideo] E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\uniplugin_vlcVideo\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:uniplugin_vlcVideo] D:\Users\Desktop\uniplugin-vlc-video\uniplugin_vlcVideo\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:fresco:1.13.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\ca86d6768e5e44b0bd1326e06fd25bdf\jetified-fresco-1.13.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:animated-gif:1.13.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\eefc3eac1932c86fb5dd86807d004e9a\jetified-animated-gif-1.13.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\f71ca817687479b80aa7417020f94116\jetified-glide-4.9.0\AndroidManifest.xml:2:1-12:12
@@ -47,67 +47,67 @@ MERGED from [com.facebook.fresco:nativeimagetranscoder:1.13.0] C:\Users\User\.gr
 MERGED from [com.facebook.fresco:imagepipeline-base:1.13.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\d50fdc22f0992378fe73443c80115d3f\jetified-imagepipeline-base-1.13.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:fbcore:1.13.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\eb0fd88cf16d8249a3ca8f5d9d1e92c2\jetified-fbcore-1.13.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\3e80261709c2ea9f77d87cf799dc92a6\jetified-soloader-0.6.0\AndroidManifest.xml:2:1-13:12
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:1-89:12
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:1-89:12
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:1-89:12
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:1-89:12
 	package
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:4:5-36
-		INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
-		INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:4:5-36
+		INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:1-89:12
-		INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:1-89:12
+		INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:1-89:12
-		INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:1-89:12
+		INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:11-69
 supports-screens
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:6:5-11:39
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:6:5-11:39
 MERGED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:7:5-12:39
 MERGED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:7:5-12:39
 	android:largeScreens
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:8:9-36
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:8:9-36
 	android:smallScreens
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:11:9-36
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:11:9-36
 	android:normalScreens
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:9:9-37
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:9:9-37
 	android:resizeable
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:10:9-34
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:10:9-34
 	android:anyDensity
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:7:9-34
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:7:9-34
 uses-permission#android.permission.CAMERA
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:14:5-65
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:14:5-65
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:14:22-62
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:14:22-62
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:15:5-81
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:15:5-81
 MERGED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:14:5-81
 MERGED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:14:5-81
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:15:22-78
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:15:22-78
 uses-feature#android.hardware.camera
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:17:5-60
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:17:5-60
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:17:19-57
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:17:19-57
 uses-feature#android.hardware.camera.autofocus
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:18:5-70
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:18:5-70
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:18:19-67
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:18:19-67
 uses-permission#android.permission.VIBRATE
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:20:5-66
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:20:5-66
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:20:22-63
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:20:22-63
 uses-permission#android.permission.FLASHLIGHT
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:21:5-69
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:21:5-69
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:21:22-66
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:21:22-66
 application
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:24:5-87:19
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:24:5-87:19
 MERGED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:172:5-278:19
 MERGED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:172:5-278:19
 MERGED from [uniapp-v8-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\b1478f71ad55c7a8062c61656e327b85\jetified-uniapp-v8-release\AndroidManifest.xml:29:5-35:19
@@ -127,103 +127,103 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\User\.gradle\caches\
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\73530a2d0c1df4b3085807c82555ce12\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:30:9-35
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:30:9-35
 	android:label
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:28:9-41
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:28:9-41
 	android:allowClearUserData
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:26:9-42
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:26:9-42
 	android:largeHeap
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:29:9-33
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:29:9-33
 	android:icon
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:27:9-38
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:27:9-38
 	android:usesCleartextTraffic
 		ADDED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:175:9-44
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:25:9-63
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:25:9-63
 activity#io.dcloud.PandoraEntry
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:33:9-55:20
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:33:9-55:20
 	android:hardwareAccelerated
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:37:13-47
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:37:13-47
 	android:windowSoftInputMode
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:38:13-55
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:38:13-55
 	android:configChanges
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:36:13-92
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:36:13-92
 	android:theme
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:35:13-52
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:35:13-52
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:34:13-50
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:34:13-50
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:hbuilder
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:39:13-45:29
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:39:13-45:29
 data
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:40:17-50
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:40:17-50
 	android:scheme
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:40:23-48
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:40:23-48
 	android:mimeType
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:47:23-49
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:47:23-49
 action#android.intent.action.VIEW
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:41:17-68
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:41:17-68
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:41:25-66
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:41:25-66
 category#android.intent.category.DEFAULT
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:43:17-75
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:43:17-75
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:43:27-73
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:43:27-73
 category#android.intent.category.BROWSABLE
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:44:17-77
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:44:17-77
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:44:27-75
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:44:27-75
 intent-filter#action:name:android.intent.action.SEND+category:name:android.intent.category.DEFAULT+data:mimeType:image/*
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:46:13-50:29
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:46:13-50:29
 action#android.intent.action.SEND
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:48:17-68
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:48:17-68
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:48:25-66
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:48:25-66
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:51:13-54:29
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:51:13-54:29
 action#android.intent.action.MAIN
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:52:17-68
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:52:17-68
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:52:25-66
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:52:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:53:17-76
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:53:17-76
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:53:27-74
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:53:27-74
 meta-data#dcloud_uninview_background
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:56:9-57:35
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:56:9-57:35
 	android:value
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:57:13-33
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:57:13-33
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:56:20-61
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:56:20-61
 activity#io.dcloud.PandoraEntryActivity
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:59:9-83:20
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:59:9-83:20
 	android:screenOrientation
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:65:13-45
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:65:13-45
 	android:launchMode
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:61:13-44
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:61:13-44
 	android:hardwareAccelerated
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:63:13-47
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:63:13-47
 	android:windowSoftInputMode
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:67:13-55
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:67:13-55
 	android:permission
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:64:13-89
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:64:13-89
 	android:configChanges
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:62:13-151
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:62:13-151
 	android:theme
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:66:13-47
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:66:13-47
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:60:13-58
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:60:13-58
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme: 
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:69:13-82:29
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:69:13-82:29
 meta-data#dcloud_appkey
-ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:84:9-86:64
+ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:84:9-86:64
 	android:value
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:86:13-61
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:86:13-61
 	android:name
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:85:13-41
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:85:13-41
 uses-sdk
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
 MERGED from [android-gif-drawable-release@1.2.23.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\6340ab3b62f23c964870dc1673c3b0f1\jetified-android-gif-drawable-release@1.2.23\AndroidManifest.xml:5:5-7:41
 MERGED from [android-gif-drawable-release@1.2.23.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\6340ab3b62f23c964870dc1673c3b0f1\jetified-android-gif-drawable-release@1.2.23\AndroidManifest.xml:5:5-7:41
 MERGED from [breakpad-build-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\9ebfe1c2ab737b5274cd67721b9e7dcd\jetified-breakpad-build-release\AndroidManifest.xml:5:5-7:41
@@ -238,8 +238,8 @@ MERGED from [uniapp-v8-release.aar] C:\Users\User\.gradle\caches\transforms-2\fi
 MERGED from [uniapp-v8-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\b1478f71ad55c7a8062c61656e327b85\jetified-uniapp-v8-release\AndroidManifest.xml:25:5-27:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\c85e1f195321245fafe1a599b5dddf47\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\c85e1f195321245fafe1a599b5dddf47\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [:uniplugin_vlcVideo] E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\uniplugin_vlcVideo\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:uniplugin_vlcVideo] E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\uniplugin_vlcVideo\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:uniplugin_vlcVideo] D:\Users\Desktop\uniplugin-vlc-video\uniplugin_vlcVideo\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:uniplugin_vlcVideo] D:\Users\Desktop\uniplugin-vlc-video\uniplugin_vlcVideo\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fresco:1.13.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\ca86d6768e5e44b0bd1326e06fd25bdf\jetified-fresco-1.13.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fresco:1.13.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\ca86d6768e5e44b0bd1326e06fd25bdf\jetified-fresco-1.13.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:animated-gif:1.13.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\eefc3eac1932c86fb5dd86807d004e9a\jetified-animated-gif-1.13.0\AndroidManifest.xml:5:5-7:41
@@ -310,18 +310,18 @@ MERGED from [com.facebook.fresco:fbcore:1.13.0] C:\Users\User\.gradle\caches\tra
 MERGED from [com.facebook.fresco:fbcore:1.13.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\eb0fd88cf16d8249a3ca8f5d9d1e92c2\jetified-fbcore-1.13.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\3e80261709c2ea9f77d87cf799dc92a6\jetified-soloader-0.6.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\3e80261709c2ea9f77d87cf799dc92a6\jetified-soloader-0.6.0\AndroidManifest.xml:7:5-9:41
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
-INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
+INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [oaid_sdk_1.0.25.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\cb3ac3fc40be5e28d038fada210414e1\jetified-oaid_sdk_1.0.25\AndroidManifest.xml:11:9-60
 	android:targetSdkVersion
-		INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
-		INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
-		ADDED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
-		INJECTED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
+		ADDED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.READ_MEDIA_IMAGES
 ADDED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:17:5-76
 	android:name
@@ -501,7 +501,7 @@ ADDED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-
 	android:name
 		ADDED from [lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:269:13-84
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:2:1-89:12 reason: io.dcloud.base requested WRITE_EXTERNAL_STORAGE
+IMPLIED from D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:2:1-89:12 reason: io.dcloud.base requested WRITE_EXTERNAL_STORAGE
 uses-permission#com.asus.msa.SupplementaryDID.ACCESS
 ADDED from [oaid_sdk_1.0.25.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\cb3ac3fc40be5e28d038fada210414e1\jetified-oaid_sdk_1.0.25\AndroidManifest.xml:13:5-76
 	android:name

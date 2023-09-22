@@ -1,4 +1,4 @@
-# The proguard configuration file for the following section is E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\build\intermediates\proguard-files\proguard-android.txt-4.1.1
+# The proguard configuration file for the following section is D:\Users\Desktop\uniplugin-vlc-video\app\build\intermediates\proguard-files\proguard-android.txt-4.1.1
 # This is a configuration file for ProGuard.
 # http://proguard.sourceforge.net/index.html#manual/usage.html
 #
@@ -110,8 +110,8 @@
 # These classes are duplicated between android.jar and core-lambda-stubs.jar.
 -dontnote java.lang.invoke.**
 
-# End of content from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\build\intermediates\proguard-files\proguard-android.txt-4.1.1
-# The proguard configuration file for the following section is E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\proguard-rules.pro
+# End of content from D:\Users\Desktop\uniplugin-vlc-video\app\build\intermediates\proguard-files\proguard-android.txt-4.1.1
+# The proguard configuration file for the following section is D:\Users\Desktop\uniplugin-vlc-video\app\proguard-rules.pro
 -optimizationpasses 5
 -dontusemixedcaseclassnames
 -dontskipnonpubliclibraryclasses
@@ -262,8 +262,8 @@
 -keep class androidtranscoder.**{*;}
 -keep class XI.**{*;}
 -keep class org.videolan.** { *; }
-# End of content from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\proguard-rules.pro
-# The proguard configuration file for the following section is E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\build\intermediates\aapt_proguard_file\debug\aapt_rules.txt
+# End of content from D:\Users\Desktop\uniplugin-vlc-video\app\proguard-rules.pro
+# The proguard configuration file for the following section is D:\Users\Desktop\uniplugin-vlc-video\app\build\intermediates\aapt_proguard_file\debug\aapt_rules.txt
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 -keep class com.dmcbig.mediapicker.PickerActivity { <init>(); }
 -keep class com.dmcbig.mediapicker.PreviewActivity { <init>(); }
@@ -345,7 +345,7 @@
 -keepclassmembers class * { *** onClick(android.view.View); }
 
 
-# End of content from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\build\intermediates\aapt_proguard_file\debug\aapt_rules.txt
+# End of content from D:\Users\Desktop\uniplugin-vlc-video\app\build\intermediates\aapt_proguard_file\debug\aapt_rules.txt
 # The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\6340ab3b62f23c964870dc1673c3b0f1\jetified-android-gif-drawable-release@1.2.23\proguard.txt
 -keep public class pl.droidsonroids.gif.GifIOException{<init>(int, java.lang.String);}
 #Prevents warnings for consumers not using AndroidX
@@ -382,9 +382,9 @@
     public boolean isLayoutSuppressed();
 }
 # End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\c85e1f195321245fafe1a599b5dddf47\recyclerview-1.1.0\proguard.txt
-# The proguard configuration file for the following section is E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\uniplugin_vlcVideo\build\intermediates\consumer_proguard_dir\debug\lib0\proguard.txt
+# The proguard configuration file for the following section is D:\Users\Desktop\uniplugin-vlc-video\uniplugin_vlcVideo\build\intermediates\consumer_proguard_dir\debug\lib0\proguard.txt
 
-# End of content from E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\uniplugin_vlcVideo\build\intermediates\consumer_proguard_dir\debug\lib0\proguard.txt
+# End of content from D:\Users\Desktop\uniplugin-vlc-video\uniplugin_vlcVideo\build\intermediates\consumer_proguard_dir\debug\lib0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\f71ca817687479b80aa7417020f94116\jetified-glide-4.9.0\proguard.txt
 -keep public class * implements com.bumptech.glide.module.GlideModule
 -keep public class * extends com.bumptech.glide.module.AppGlideModule

@@ -4,6 +4,7 @@ package com.programbao.vlc_video;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.SurfaceView;
 
 import com.taobao.weex.WXSDKInstance;
@@ -17,6 +18,10 @@ import org.videolan.libvlc.LibVLC;
 import org.videolan.libvlc.Media;
 import org.videolan.libvlc.MediaPlayer;
 import org.videolan.libvlc.interfaces.IVLCVout;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 //import javax.naming.Context;
 
@@ -39,7 +44,14 @@ public class VlcVideo extends WXComponent<SurfaceView> {
     }
 
     public void initPlay(Context context) {
-        mLibVLC = new LibVLC(context);
+        Object localObject = new ArrayList();
+        ((ArrayList)localObject).add("-vvv");
+        ((ArrayList)localObject).add("--no-drop-late-frames");
+        ((ArrayList)localObject).add("--no-skip-frames");
+        ((ArrayList)localObject).add("--rtsp-tcp");
+        ((ArrayList)localObject).add("--avcodec-hw=any");
+        ((ArrayList)localObject).add("--live-caching=0");
+        mLibVLC = new LibVLC(context, (ArrayList<String>) localObject);
         mMediaPlayer = new MediaPlayer(mLibVLC);
         surfaceView = new SurfaceView(context);
         vlcVout = mMediaPlayer.getVLCVout();
@@ -48,6 +60,7 @@ public class VlcVideo extends WXComponent<SurfaceView> {
             @Override
             public void onEvent(MediaPlayer.Event event) {
                 // 处理播放事件
+                videoPlayerEvent(event);
             }
         });
     }
@@ -85,9 +98,8 @@ public class VlcVideo extends WXComponent<SurfaceView> {
             }
         });
     }
-
+    //    播放时间变化
     // 生命周期方法
-
     @Override
     public void onActivityStart() {
         super.onActivityStart();
@@ -116,4 +128,116 @@ public class VlcVideo extends WXComponent<SurfaceView> {
         mMediaPlayer.release();
         mLibVLC.release();
     }
+    void callbackEvent(String paramString, Map paramMap)
+    {
+        int i = getEvents().size();
+        int j = 0;
+        int m;
+        for (int k = 0; ; k++)
+        {
+            m = j;
+            if (k >= i)
+                break;
+            if (!((String)getEvents().get(k)).equals(paramString))
+                continue;
+            m = 1;
+            break;
+        }
+        if (m != 0)
+        {
+            HashMap localHashMap = new HashMap();
+            if (paramMap != null)
+                localHashMap.put("detail", paramMap);
+            fireEvent(paramString, localHashMap);
+        }
+    }
+
+    private void log(String paramString)
+    {
+        Log.e("VlcPlugin", paramString);
+    }
+    private String getVideoFomatTime(long milliseconds) {
+//        long milliseconds = paramEvent.getLengthChanged(); // 这是VLC返回的时长值
+        // 将毫秒转换为秒
+        long seconds = milliseconds / 1000;
+
+        // 计算小时、分钟和秒
+        int hours = (int) (seconds / 3600);
+        int minutes = (int) ((seconds % 3600) / 60);
+        int remainingSeconds = (int) (seconds % 60);
+
+        // 构建时间字符串
+        return String.format("%02d:%02d:%02d", hours, minutes, remainingSeconds);
+    }
+    public void videoPlayerEvent(MediaPlayer.Event paramEvent) {
+        int eventType = paramEvent.type;
+
+        switch (eventType) {
+            case 256:
+                log("MediaChanged");
+                break;
+            case 258:
+                callbackEvent("onOpening", null);
+                break;
+            case 262:
+                callbackEvent("onPlayStopped", null);
+                break;
+            case 260:
+                callbackEvent("onPlaying", null);
+                break;
+            case 261:
+                callbackEvent("onPlayPaused", null);
+                break;
+            case 266:
+                callbackEvent("onPlayError", null);
+                break;
+            case 267:
+                Map<String, Object> timeChangedMap = new HashMap<>();
+                long currentMilliseconds = paramEvent.getTimeChanged(); // 这是VLC返回的时长值
+
+                timeChangedMap.put("time", Long.valueOf(currentMilliseconds));
+                timeChangedMap.put("currentTimeFormat", getVideoFomatTime(currentMilliseconds));
+                callbackEvent("onTimeChanged", timeChangedMap);
+                break;
+            case 268:
+                Map<String, Object> positionChangedMap = new HashMap<>();
+                positionChangedMap.put("position", Float.valueOf(paramEvent.getPositionChanged()));
+                callbackEvent("onPositionChange", positionChangedMap);
+                break;
+            case 269:
+                log("SeekableChanged: " + paramEvent.getSeekable());
+                break;
+            case 270:
+                log("PausableChanged: " + paramEvent.getPausable());
+                break;
+            case 276:
+                callbackEvent("ESAdded", null);
+                break;
+            case 277:
+                callbackEvent("ESDeleted", null);
+                break;
+            case 278:
+                callbackEvent("ESSelected", null);
+                break;
+            case 273:
+                Map<String, Object> lengthChangedMap = new HashMap<>();
+                long milliseconds = paramEvent.getLengthChanged(); // 这是VLC返回的时长值
+
+                lengthChangedMap.put("time", Long.valueOf(milliseconds));
+                lengthChangedMap.put("totalTimeFormat", getVideoFomatTime(milliseconds));
+                callbackEvent("onTotalTime", lengthChangedMap);
+                break;
+            case 286:
+                log("RecordChanged: " + paramEvent.getRecordPath());
+                break;
+            case 274:
+                log("Vout: " + paramEvent.getVoutCount());
+                break;
+            default:
+                // Handle other event types or ignore them
+                break;
+        }
+    }
+
+
 }

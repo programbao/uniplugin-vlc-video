@@ -6,44 +6,44 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
+8-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml
+9-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml
 10
 11    <supports-screens
-11-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:6:5-11:39
+11-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:6:5-11:39
 12        android:anyDensity="true"
-12-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:7:9-34
+12-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:7:9-34
 13        android:largeScreens="true"
-13-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:8:9-36
+13-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:8:9-36
 14        android:normalScreens="true"
-14-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:9:9-37
+14-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:9:9-37
 15        android:resizeable="true"
-15-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:10:9-34
+15-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:10:9-34
 16        android:smallScreens="true" />
-16-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:11:9-36
+16-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:11:9-36
 17
 18    <!-- Barcode(二维码)  begin -->
 19    <uses-permission android:name="android.permission.CAMERA" />
-19-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:14:5-65
-19-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:14:22-62
+19-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:14:5-65
+19-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:14:22-62
 20    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-20-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:15:5-81
-20-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:15:22-78
+20-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:15:5-81
+20-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:15:22-78
 21
 22    <uses-feature android:name="android.hardware.camera" />
-22-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:17:5-60
-22-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:17:19-57
+22-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:17:5-60
+22-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:17:19-57
 23    <uses-feature android:name="android.hardware.camera.autofocus" />
-23-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:18:5-70
-23-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:18:19-67
+23-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:18:5-70
+23-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:18:19-67
 24
 25    <uses-permission android:name="android.permission.VIBRATE" />
-25-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:20:5-66
-25-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:20:22-63
+25-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:20:5-66
+25-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:20:22-63
 26    <uses-permission android:name="android.permission.FLASHLIGHT" />
-26-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:21:5-69
-26-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:21:22-66
+26-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:21:5-69
+26-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:21:22-66
 27
 28    <!-- 适配android 13 图片选择权限 -->
 29    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
@@ -78,18 +78,18 @@
 43        <intent>
 43-->[lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:32:9-34:18
 44            <action android:name="android.intent.action.MAIN" />
-44-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:52:17-68
-44-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:52:25-66
+44-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:52:17-68
+44-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:52:25-66
 45        </intent>
 46        <intent>
 46-->[lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:35:9-39:18
 47            <action android:name="android.intent.action.VIEW" />
-47-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:41:17-68
-47-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:41:25-66
+47-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:41:17-68
+47-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:41:25-66
 48
 49            <category android:name="android.intent.category.DEFAULT" />
-49-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:43:17-75
-49-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:43:27-73
+49-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:43:17-75
+49-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:43:27-73
 50        </intent>
 51    </queries>
 52
@@ -101,134 +101,134 @@
 55-->[oaid_sdk_1.0.25.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\cb3ac3fc40be5e28d038fada210414e1\jetified-oaid_sdk_1.0.25\AndroidManifest.xml:15:5-62
 55-->[oaid_sdk_1.0.25.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\cb3ac3fc40be5e28d038fada210414e1\jetified-oaid_sdk_1.0.25\AndroidManifest.xml:15:22-59
 56    <application
-56-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:24:5-87:19
+56-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:24:5-87:19
 57        android:name="io.dcloud.application.DCloudApplication"
-57-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:25:9-63
+57-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:25:9-63
 58        android:allowClearUserData="true"
-58-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:26:9-42
+58-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:26:9-42
 59        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 59-->[androidx.core:core:1.1.0] C:\Users\User\.gradle\caches\transforms-2\files-2.1\73530a2d0c1df4b3085807c82555ce12\core-1.1.0\AndroidManifest.xml:24:18-86
 60        android:debuggable="true"
 61        android:extractNativeLibs="true"
 61-->[uniapp-v8-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\b1478f71ad55c7a8062c61656e327b85\jetified-uniapp-v8-release\AndroidManifest.xml:29:18-50
 62        android:icon="@drawable/icon"
-62-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:27:9-38
+62-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:27:9-38
 63        android:label="@string/app_name"
-63-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:28:9-41
+63-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:28:9-41
 64        android:largeHeap="true"
-64-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:29:9-33
+64-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:29:9-33
 65        android:supportsRtl="true"
-65-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:30:9-35
+65-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:30:9-35
 66        android:testOnly="true"
 67        android:usesCleartextTraffic="true" >
 67-->[lib.5plus.base-release.aar] C:\Users\User\.gradle\caches\transforms-2\files-2.1\77de9729e9ee25a014efce86b2183b55\jetified-lib.5plus.base-release\AndroidManifest.xml:175:9-44
 68
 69        <!-- 应用入口 -->
 70        <activity
-70-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:33:9-55:20
+70-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:33:9-55:20
 71            android:name="io.dcloud.PandoraEntry"
-71-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:34:13-50
+71-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:34:13-50
 72            android:configChanges="orientation|keyboardHidden|screenSize|mcc|mnc|fontScale"
-72-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:36:13-92
+72-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:36:13-92
 73            android:hardwareAccelerated="true"
-73-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:37:13-47
+73-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:37:13-47
 74            android:theme="@style/TranslucentTheme"
-74-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:35:13-52
+74-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:35:13-52
 75            android:windowSoftInputMode="adjustResize" >
-75-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:38:13-55
+75-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:38:13-55
 76            <intent-filter>
-76-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:39:13-45:29
+76-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:39:13-45:29
 77                <data android:scheme="hbuilder" />
-77-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:40:17-50
-77-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:40:23-48
+77-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:40:17-50
+77-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:40:23-48
 78
 79                <action android:name="android.intent.action.VIEW" />
-79-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:41:17-68
-79-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:41:25-66
+79-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:41:17-68
+79-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:41:25-66
 80
 81                <category android:name="android.intent.category.DEFAULT" />
-81-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:43:17-75
-81-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:43:27-73
+81-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:43:17-75
+81-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:43:27-73
 82                <category android:name="android.intent.category.BROWSABLE" />
-82-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:44:17-77
-82-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:44:27-75
+82-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:44:17-77
+82-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:44:27-75
 83            </intent-filter>
 84            <intent-filter>
-84-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:46:13-50:29
+84-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:46:13-50:29
 85                <data android:mimeType="image/*" />
-85-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:40:17-50
-85-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:47:23-49
+85-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:40:17-50
+85-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:47:23-49
 86
 87                <action android:name="android.intent.action.SEND" />
-87-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:48:17-68
-87-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:48:25-66
+87-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:48:17-68
+87-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:48:25-66
 88
 89                <category android:name="android.intent.category.DEFAULT" />
-89-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:43:17-75
-89-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:43:27-73
+89-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:43:17-75
+89-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:43:27-73
 90            </intent-filter>
 91            <intent-filter>
-91-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:51:13-54:29
+91-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:51:13-54:29
 92                <action android:name="android.intent.action.MAIN" />
-92-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:52:17-68
-92-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:52:25-66
+92-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:52:17-68
+92-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:52:25-66
 93
 94                <category android:name="android.intent.category.LAUNCHER" />
-94-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:53:17-76
-94-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:53:27-74
+94-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:53:17-76
+94-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:53:27-74
 95            </intent-filter>
 96        </activity>
 97
 98        <meta-data
-98-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:56:9-57:35
+98-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:56:9-57:35
 99            android:name="dcloud_uninview_background"
-99-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:56:20-61
+99-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:56:20-61
 100            android:value="true" />
-100-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:57:13-33
+100-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:57:13-33
 101
 102        <activity
-102-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:59:9-83:20
+102-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:59:9-83:20
 103            android:name="io.dcloud.PandoraEntryActivity"
-103-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:60:13-58
+103-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:60:13-58
 104            android:configChanges="orientation|keyboardHidden|screenSize|mcc|mnc|fontScale|keyboard|smallestScreenSize|screenLayout|screenSize|uiMode"
-104-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:62:13-151
+104-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:62:13-151
 105            android:hardwareAccelerated="true"
-105-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:63:13-47
+105-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:63:13-47
 106            android:launchMode="singleTask"
-106-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:61:13-44
+106-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:61:13-44
 107            android:permission="com.miui.securitycenter.permission.AppPermissionsEditor"
-107-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:64:13-89
+107-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:64:13-89
 108            android:screenOrientation="user"
-108-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:65:13-45
+108-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:65:13-45
 109            android:theme="@style/DCloudTheme"
-109-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:66:13-47
+109-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:66:13-47
 110            android:windowSoftInputMode="adjustResize" >
-110-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:67:13-55
+110-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:67:13-55
 111            <intent-filter>
-111-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:69:13-82:29
+111-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:69:13-82:29
 112                <category android:name="android.intent.category.DEFAULT" />
-112-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:43:17-75
-112-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:43:27-73
+112-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:43:17-75
+112-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:43:27-73
 113                <category android:name="android.intent.category.BROWSABLE" />
-113-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:44:17-77
-113-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:44:27-75
+113-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:44:17-77
+113-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:44:27-75
 114
 115                <action android:name="android.intent.action.VIEW" />
-115-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:41:17-68
-115-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:41:25-66
+115-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:41:17-68
+115-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:41:25-66
 116
 117                <data android:scheme=" " />
-117-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:40:17-50
-117-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:40:23-48
+117-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:40:17-50
+117-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:40:23-48
 118            </intent-filter>
 119        </activity>
 120
 121        <meta-data
-121-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:84:9-86:64
+121-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:84:9-86:64
 122            android:name="dcloud_appkey"
-122-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:85:13-41
+122-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:85:13-41
 123            android:value="f84662980f27c79a6fee32b24344f1ce" />
-123-->E:\uniapp-plugins\Android-SDK@3.8.12.81924_20230817\UniPlugin-Hello-AS\app\src\main\AndroidManifest.xml:86:13-61
+123-->D:\Users\Desktop\uniplugin-vlc-video\app\src\main\AndroidManifest.xml:86:13-61
 124        <!--
 125        <activity
 126            android:name="io.dcloud.imagepick.CustomGalleryActivity"

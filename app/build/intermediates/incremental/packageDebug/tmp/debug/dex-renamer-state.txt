@@ -1,4 +1,4 @@
-#Fri Sep 22 09:44:15 JST 2023
-base.0=E\:\\uniapp-plugins\\Android-SDK@3.8.12.81924_20230817\\UniPlugin-Hello-AS\\app\\build\\intermediates\\dex\\debug\\minifyDebugWithR8\\classes.dex
+#Fri Sep 22 17:32:16 JST 2023
+base.0=D\:\\Users\\Desktop\\uniplugin-vlc-video\\app\\build\\intermediates\\dex\\debug\\minifyDebugWithR8\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
