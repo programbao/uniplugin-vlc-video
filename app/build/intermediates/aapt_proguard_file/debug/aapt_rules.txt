@@ -1,0 +1,80 @@
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+-keep class com.dmcbig.mediapicker.PickerActivity { <init>(); }
+-keep class com.dmcbig.mediapicker.PreviewActivity { <init>(); }
+-keep class com.taobao.weex.WXGlobalEventReceiver { <init>(); }
+-keep class io.dcloud.PandoraEntry { <init>(); }
+-keep class io.dcloud.PandoraEntryActivity { <init>(); }
+-keep class io.dcloud.ProcessMediator { <init>(); }
+-keep class io.dcloud.WebAppActivity { <init>(); }
+-keep class io.dcloud.WebviewActivity { <init>(); }
+-keep class io.dcloud.application.DCloudApplication { <init>(); }
+-keep class io.dcloud.common.util.DCloud_FileProvider { <init>(); }
+-keep class io.dcloud.feature.gallery.imageedit.IMGEditActivity { <init>(); }
+-keep class io.dcloud.feature.nativeObj.photoview.PhotoActivity { <init>(); }
+-keep class io.dcloud.sdk.activity.WebViewActivity { <init>(); }
+-keep class io.dcloud.sdk.base.service.DownloadService { <init>(); }
+-keep class io.dcloud.sdk.base.service.provider.DCloudAdFileProvider { <init>(); }
+-keep class android.widget.Space { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.app.AlertController$RecycleListView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.view.menu.ActionMenuItemView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.view.menu.ExpandedMenuView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.view.menu.ListMenuItemView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionBarContainer { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionBarContextView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionBarOverlayLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActionMenuView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ActivityChooserView$InnerLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.AlertDialogLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ButtonBarLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ContentFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.DialogTitle { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.FitWindowsFrameLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.FitWindowsLinearLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.SearchView$SearchAutoComplete { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.Toolbar { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.appcompat.widget.ViewStubCompat { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.core.widget.NestedScrollView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.recyclerview.widget.RecyclerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class androidx.viewpager.widget.ViewPager { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.dcloud.android.widget.TextViewButton { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.dcloud.android.widget.photoview.PhotoView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.dmcbig.mediapicker.view.HackyViewPager { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class com.taobao.weex.ui.view.listview.WXRecyclerView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class io.dcloud.common.ui.GifImageView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class io.dcloud.feature.gallery.imageedit.view.IMGColorGroup { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class io.dcloud.feature.gallery.imageedit.view.IMGColorRadio { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class io.dcloud.feature.gallery.imageedit.view.IMGView { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keep class io.dcloud.feature.gallery.imageedit.view.WindowInsertLinearLayout { <init>(android.content.Context, android.util.AttributeSet); }
+
+-keepclassmembers class * { *** onClick(android.view.View); }
+
