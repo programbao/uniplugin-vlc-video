@@ -1,4 +1,4 @@
-<hbuilder>
+<hbuilder debug="true" syncDebug="true">
 <apps>
     <app appid="__UNI__BE00055" appver=""/>
 </apps>

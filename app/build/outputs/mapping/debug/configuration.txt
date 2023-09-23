@@ -383,7 +383,10 @@
 }
 # End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\c85e1f195321245fafe1a599b5dddf47\recyclerview-1.1.0\proguard.txt
 # The proguard configuration file for the following section is D:\Users\Desktop\uniplugin-vlc-video\uniplugin_vlcVideo\build\intermediates\consumer_proguard_dir\debug\lib0\proguard.txt
-
+#module扩展的混淆
+-keep public class * extends com.taobao.weex.common.WXModule{*;}
+#component扩展混淆
+-keep public class * extends com.taobao.weex.ui.component.WXComponent{*;}
 # End of content from D:\Users\Desktop\uniplugin-vlc-video\uniplugin_vlcVideo\build\intermediates\consumer_proguard_dir\debug\lib0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\f71ca817687479b80aa7417020f94116\jetified-glide-4.9.0\proguard.txt
 -keep public class * implements com.bumptech.glide.module.GlideModule

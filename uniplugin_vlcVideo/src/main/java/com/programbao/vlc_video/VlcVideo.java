@@ -7,7 +7,10 @@ import android.net.Uri;
 import android.util.Log;
 import android.view.SurfaceView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.taobao.weex.WXSDKInstance;
+import com.taobao.weex.annotation.JSMethod;
+import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.ui.action.BasicComponentData;
 import com.taobao.weex.ui.component.WXComponent;
 import com.taobao.weex.ui.component.WXComponentProp;
@@ -22,6 +25,8 @@ import org.videolan.libvlc.interfaces.IVLCVout;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import io.dcloud.feature.uniapp.annotation.UniJSMethod;
 
 //import javax.naming.Context;
 
@@ -98,7 +103,31 @@ public class VlcVideo extends WXComponent<SurfaceView> {
             }
         });
     }
-    //    播放时间变化
+
+    // 暂停
+    @JSMethod
+    public void pause(JSONObject options, JSCallback callback) {
+        log(mMediaPlayer.toString());
+        if (mMediaPlayer != null) {
+            mMediaPlayer.pause();
+        }
+    }
+    // 播放
+    @UniJSMethod(uiThread=false)
+    public void toPlay() {
+        MediaPlayer localMediaPlayer = this.mMediaPlayer;
+        if (localMediaPlayer != null)
+            localMediaPlayer.play();
+    }
+
+    // 终止
+    @UniJSMethod(uiThread=false)
+    public void stop() {
+        MediaPlayer localMediaPlayer = this.mMediaPlayer;
+        if (localMediaPlayer != null)
+            localMediaPlayer.stop();
+    }
+
     // 生命周期方法
     @Override
     public void onActivityStart() {
