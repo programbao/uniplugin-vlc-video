@@ -123,9 +123,14 @@ public class VlcVideo extends WXComponent<SurfaceView> {
     // 终止
     @UniJSMethod(uiThread=false)
     public void stop() {
-        MediaPlayer localMediaPlayer = this.mMediaPlayer;
-        if (localMediaPlayer != null)
-            localMediaPlayer.stop();
+        mMediaPlayer.stop();
+    }
+
+    // 设置播放速率
+    @JSMethod
+    public void setRate(JSONObject paramJSONObject) {
+        float rate = paramJSONObject.getFloatValue("rate");
+        this.mMediaPlayer.setRate(rate);
     }
 
     // 生命周期方法
