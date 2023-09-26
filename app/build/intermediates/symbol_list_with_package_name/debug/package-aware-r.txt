@@ -1114,6 +1114,8 @@ id path
 id photoview
 id play_view
 id player_surface_frame
+id polyv_video_view
+id polyv_vod_view
 id preview
 id progressBar
 id progress_circular
@@ -1229,6 +1231,7 @@ id up
 id useLogo
 id video_info
 id viewpager
+id vlc_container
 id vs_op
 id vs_op_sub
 id vs_tips_stub
@@ -1331,6 +1334,7 @@ layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout player_remote
+layout programbo_vlc_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -1383,6 +1387,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
+string build_libvlc_revision
 string build_vlc_revision
 string dcloud_Init_fail_tips
 string dcloud_ad_error_code_200000

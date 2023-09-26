@@ -5,7 +5,7 @@
         {
           "type": "component",
           "name": "programbao-vlc-video",
-          "class": "com.programbao.vlc_video.VlcVideo"
+          "class": "com.programbao.vlc_video.VlcVideoV2"
         }
       ]
     }

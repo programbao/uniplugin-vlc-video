@@ -1,4 +1,4 @@
-#Mon Sep 25 17:54:05 JST 2023
+#Tue Sep 26 17:19:45 JST 2023
 base.0=D\:\\Users\\Desktop\\uniplugin-vlc-video\\app\\build\\intermediates\\dex\\debug\\minifyDebugWithR8\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

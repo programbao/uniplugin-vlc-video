@@ -4,7 +4,9 @@ package com.programbao.vlc_video;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.SurfaceView;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 
 import com.alibaba.fastjson.JSONObject;
 import com.taobao.weex.WXSDKInstance;
@@ -64,6 +67,7 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
         ((ArrayList)localObject).add("--rtsp-tcp");
         ((ArrayList)localObject).add("--avcodec-hw=any");
         ((ArrayList)localObject).add("--live-caching=0");
+        ((ArrayList)localObject).add(":fullscreen");
         mLibVLC = new LibVLC(context, (ArrayList<String>) localObject);
         mMediaPlayer = new MediaPlayer(mLibVLC);
         surfaceView = new SurfaceView(context);
@@ -105,8 +109,112 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
                 } catch (Exception var4) {
                     throw new RuntimeException("Invalid asset folder");
                 }
+                // 创建一个定时器,延迟3秒执行
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+////                        initVLC();
+//                        changeToLandscape();
+//                    }
+//                }, 5000); // 3秒delay
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+//                        initVLC();
+//                        changeToLandscape();
+//                        toggleFullscreen(true);
+
+                        // 创建全屏容器
+//                        fullscreenContainer = new FrameLayout(getContext());
+//                        fullscreenContainer.setLayoutParams(new FrameLayout.LayoutParams(
+//                                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+
+                        // 添加播放器视图到全屏容器
+//                        View videoView = createVideoView(); // 创建播放器视图，这部分代码需要根据你的实际情况编写
+//                        vlcContainerView.removeView(surfaceView);
+
+                        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+
+                        new Handler().postDelayed(new Runnable() {
+                              @Override
+                              public void run() {
+                                  activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                                          WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                                  ViewGroup localViewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                                  ((ViewGroup)getParent().getHostView()).removeView(getHostView());
+                                  FrameLayout.LayoutParams localLayoutParams = new FrameLayout.LayoutParams(-1, -1);
+                                  localViewGroup.addView(getHostView(), localLayoutParams);
+                                  surfaceView.post(new Runnable() {
+                                      @Override
+                                      public void run() {
+                                          new Handler().postDelayed(new Runnable() {
+                                              @Override
+                                              public void run() {
+                                                  // 在子线程中准备播放
+                                                  int width = surfaceView.getWidth();
+                                                  int height = surfaceView.getHeight();
+                                                  vlcVout.setVideoSurface(surfaceView.getHolder().getSurface(), surfaceView.getHolder());
+                                                  vlcVout.setWindowSize(width, height);
+                                                  vlcVout.attachViews();
+                                                  // setBringToFront();
+                                                  surfaceView.requestLayout();
+                                              }
+                                          }, 60000);
+                                      }
+                                  });
+                              }
+                        }, 200);
+
+//                        videoView.setLayoutParams(new ViewGroup.LayoutParams(
+//                                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//                        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
+//                        int screenWidth = displayMetrics.widthPixels;
+//                        int screenHeight = displayMetrics.heightPixels;
+//                        System.out.println("screenWidth:" + screenWidth + " screenHeight:" + screenHeight);
+//                        // 设置SurfaceView的宽度和高度
+////                        surfaceView.getLayoutParams().width = screenWidth;
+////                        surfaceView.getLayoutParams().height = screenHeight;
+//                        vlcVout.setWindowSize(screenWidth, screenHeight);
+//                        surfaceView.requestLayout();
+//                        fullscreenContainer.addView(videoView);
+//
+//                        // 将全屏容器添加到Activity的内容视图中
+//                        activity.getWindow().addContentView(fullscreenContainer, fullscreenContainer.getLayoutParams());
+
+
+                    }
+                }, 3000); // 3秒delay
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+////                        vlcContainerView.addView(surfaceView);
+//                        ViewGroup localViewGroup = (ViewGroup)getParent().getHostView();
+//                        View localView = getHostView();
+//                        localViewGroup.addView(localView, new FrameLayout.LayoutParams(-1, -1));
+//                        surfaceView.post(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                // 在子线程中准备播放
+//                                int width = surfaceView.getWidth();
+//                                int height = surfaceView.getHeight();
+////                                vlcVout.setVideoSurface(surfaceView.getHolder().getSurface(), surfaceView.getHolder());
+//                                vlcVout.setWindowSize(width, height);
+////                                vlcVout.attachViews();
+//                                System.out.println("2222width:" + width + " 22222height:" + height);
+////                                setBringToFront();
+//                                surfaceView.requestLayout();
+//                            }
+//                        });
+                    }
+                }, 6000);
 
                 mMediaPlayer.play();
+                //设置沉浸式观影模式体验
+                activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                //永远不息屏
+                activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             }
         });
     }
@@ -133,7 +241,6 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
         surfaceView.getLayoutParams().width = screenWidth;
         surfaceView.getLayoutParams().height = screenHeight;
         vlcVout.setWindowSize(screenHeight, screenWidth);
-        mMediaPlayer.getVLCVout().setWindowSize(screenWidth, screenHeight);
 //        surfaceView.requestLayout();
 //        vlcVout.setAspectRatio(screenWidth + ":" + screenHeight);
         mMediaPlayer.setAspectRatio(screenWidth + ":" + screenHeight);
@@ -141,7 +248,7 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
 
     /* 切换横屏 */
     @JSMethod(uiThread = true)
-    public void changeToLandscape(JSONObject options, JSCallback callback) {
+    public void changeToLandscape() {
         Log.d(TAG, "changeToLandscape");
         JSONObject result = new JSONObject();
         if (getInstance().getContext() instanceof Activity) {
@@ -155,9 +262,9 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
             Log.e(TAG, "can not get Activity context");
             result.put("errMsg", "can not get Activity context");
         }
-        if (callback != null) {
-            callback.invoke(result);
-        }
+//        if (callback != null) {
+//            callback.invoke(result);
+//        }
     }
 
     /* 切换竖屏 */
