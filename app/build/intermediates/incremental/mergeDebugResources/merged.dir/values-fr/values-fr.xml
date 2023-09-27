@@ -49,5 +49,5 @@
     <string name="dcloud_short_cut_created_removed_manually">, Veuillez supprimer la copie manuellement</string>
     <string name="dcloud_short_cut_if_create_tips">Voulez - vous installer l application “%s” sur votre Bureau mobile"</string>
     <string msgid="730395136688082741" name="search_menu_title">"Rechercher"</string>
-    <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

@@ -87,5 +87,5 @@
     <string name="dcloud_short_cut_created_removed_manually">, 如有重複請手動删除</string>
     <string name="dcloud_short_cut_if_create_tips">是否將應用“%s”安裝在手機案頭"</string>
     <string msgid="730395136688082741" name="search_menu_title">"搜尋"</string>
-    <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

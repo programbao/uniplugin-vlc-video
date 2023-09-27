@@ -34,7 +34,7 @@ dependencies {
     compileOnly 'androidx.recyclerview:recyclerview:1.0.0'
     compileOnly 'androidx.legacy:legacy-support-v4:1.0.0'
     compileOnly 'androidx.appcompat:appcompat:1.0.0'
-//    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'com.google.android.material:material:1.2.1'
     implementation 'com.alibaba:fastjson:1.2.83'
     implementation 'com.facebook.fresco:fresco:1.13.0'
     compileOnly fileTree(dir: '../app/libs', include: ['libvlc-all-3.6.0-eap10.aar'])

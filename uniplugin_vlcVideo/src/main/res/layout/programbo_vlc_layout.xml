@@ -1,20 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/polyv_vod_view"
+    android:id="@+id/programbao_vod_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000">
-    <FrameLayout
+    <SurfaceView
+        android:id="@+id/programbao_video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <RelativeLayout
         android:id="@+id/vlc_container"
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <SurfaceView
-            android:id="@+id/polyv_video_view"
+        <!-- SurfaceView 用于显示视频画面 -->
+        <!--标题(top)控制-->
+
+        <LinearLayout
+            android:id="@+id/layout_control_top"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="@dimen/padding_50"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/video_title_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:paddingLeft="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/video_back" />
+
+            <TextView
+                android:id="@+id/tv_top_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/padding_20"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:singleLine="true"
+                android:text="我是标题"
+                android:textColor="@color/white"
+                android:textSize="@dimen/padding_20" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+        <!--时间(bottom)控制-->
+        <RelativeLayout
+            android:id="@+id/layout_control_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/video_title_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
 
-    </FrameLayout>
+            <TextView
+                android:id="@+id/tv_bottom_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/padding_20"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:singleLine="true"
+                android:text="00:00"
+                android:textColor="@color/white"
+                android:textSize="@dimen/padding_20" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_voice_type"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:layout_toRightOf="@+id/tv_bottom_time"-->
+<!--                android:paddingBottom="@dimen/padding_10"-->
+<!--                android:scaleType="centerInside"-->
+<!--                android:src="@drawable/ic_player_have_voice" />-->
+
+            <ImageView
+                android:id="@+id/iv_bottom_video_full"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:src="@drawable/nur_ic_fangda" />
+        </RelativeLayout>
+<!--        <LinearLayout-->
+<!--            android:id="@+id/layout_control_left"-->
+<!--            android:layout_width="@dimen/padding_50"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_left_lock"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/shape_vlc_gb_control"-->
+<!--                android:padding="@dimen/padding_2"-->
+<!--                android:scaleType="centerInside"-->
+<!--                android:src="@drawable/video_lock_open_ic"-->
+<!--                android:visibility="visible" />-->
+<!--        </LinearLayout>-->
+    </RelativeLayout>
+
 </RelativeLayout>

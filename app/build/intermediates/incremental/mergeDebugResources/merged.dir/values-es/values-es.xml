@@ -86,5 +86,5 @@
     <string name="dcloud_short_cut_created_removed_manually">, Por favor, elimine manualmente la copia</string>
     <string name="dcloud_short_cut_if_create_tips">Desea instalar la aplicación “%s” en su escritorio móvil"</string>
     <string msgid="730395136688082741" name="search_menu_title">"Buscar"</string>
-    <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>
