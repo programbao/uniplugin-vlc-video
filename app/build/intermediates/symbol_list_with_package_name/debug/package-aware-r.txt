@@ -2198,6 +2198,8 @@ drawable nur_ic_fangda
 drawable nur_ic_fangxiao
 drawable offline_pin
 drawable offline_pin_round
+drawable player_pause
+drawable player_play
 drawable push
 drawable selector_goto_pictures
 drawable selector_item_ffffff
@@ -2482,12 +2484,10 @@ id itemDot
 id item_touch_helper_previous_elevation
 id iv_back
 id iv_bottom_video_full
-id iv_left_lock
-id iv_voice_type
+id iv_play
 id labeled
 id largeLabel
 id layout_control_bottom
-id layout_control_left
 id layout_control_top
 id layout_footer
 id layout_op_sub
@@ -2704,7 +2704,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id tv_album_folder
-id tv_bottom_time
 id tv_cancel
 id tv_clip_reset
 id tv_custom_privacy_title
@@ -2725,6 +2724,8 @@ id view_offset_helper
 id viewpager
 id visible
 id vlc_container
+id vlc_duration
+id vlc_seekbar
 id vs_op
 id vs_op_sub
 id vs_tips_stub

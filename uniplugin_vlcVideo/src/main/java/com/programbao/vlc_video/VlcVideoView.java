@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,11 +27,14 @@ public class VlcVideoView extends FrameLayout {
 
     private TextView mTopTitle;
     private ImageView mTopBack;
+    private ImageView mPlayBtn;
+
+    private TextView vlcDuration;
+
+    private SeekBar vlcSeekbar;
 
 
-    private ProgressBar mProgressbar;
-
-//    全屏控件
+    //    全屏控件
     private ImageView fullControll;
 
     public VlcVideoView(Context context) {
@@ -62,10 +66,20 @@ public class VlcVideoView extends FrameLayout {
         mTopBack = findViewById(R.id.iv_back);
 
         mControlBottomLayout = findViewById(R.id.layout_control_bottom);
+
+        mPlayBtn = findViewById(R.id.iv_play);
+
+        vlcDuration = findViewById(R.id.vlc_duration);
+
+        vlcSeekbar = findViewById(R.id.vlc_seekbar);
 //        mVideoView.setPlayerBufferingIndicator(mProgressbar);
 
     }
-
+    public TextView getVlcDuration() { return  vlcDuration; };
+    public SeekBar getVlcSeekbar() { return  vlcSeekbar; };
+    public ImageView getmPlayBtn() { return  mPlayBtn; };
+    public ImageView getmTopBack() { return  mTopBack; };
+    public TextView getmTopTitle() { return  mTopTitle; };
     public LinearLayout getmControlTopLayout() { return mControlTopLayout; };
     public RelativeLayout getmControlBottomLayout() { return mControlBottomLayout; };
 

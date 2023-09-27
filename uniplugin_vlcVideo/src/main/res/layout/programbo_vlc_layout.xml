@@ -66,41 +66,61 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
+            <!--时间(bottom)控制-->
 
-            <TextView
-                android:id="@+id/tv_bottom_time"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/padding_20"
-                android:gravity="center_vertical"
-                android:lines="1"
-                android:singleLine="true"
-                android:text="00:00"
-                android:textColor="@color/white"
-                android:textSize="@dimen/padding_20" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding_50"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/video_title_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_voice_type"-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:layout_alignParentBottom="true"-->
-<!--                android:layout_toRightOf="@+id/tv_bottom_time"-->
-<!--                android:paddingBottom="@dimen/padding_10"-->
-<!--                android:scaleType="centerInside"-->
-<!--                android:src="@drawable/ic_player_have_voice" />-->
+                    <!-- 左侧的播放控件 -->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/iv_play"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/player_pause" />
 
-            <ImageView
-                android:id="@+id/iv_bottom_video_full"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:src="@drawable/nur_ic_fangda" />
+                    <!-- 持续时间文本 -->
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="00:00 / 00:00"
+                        android:textColor="@android:color/white"
+                        android:id="@+id/vlc_duration"
+                        android:layout_gravity="center_vertical" />
+
+                    <!-- SeekBar -->
+                    <SeekBar
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/vlc_seekbar"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical" />
+
+                    <!-- 最右侧的全屏按钮 -->
+                    <ImageView
+                        android:id="@+id/iv_bottom_video_full"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:src="@drawable/nur_ic_fangda" />
+                </LinearLayout>
+
         </RelativeLayout>
-<!--        <LinearLayout-->
+
+
+        <!--        <LinearLayout-->
 <!--            android:id="@+id/layout_control_left"-->
 <!--            android:layout_width="@dimen/padding_50"-->
 <!--            android:layout_height="match_parent"-->
