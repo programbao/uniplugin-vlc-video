@@ -16,6 +16,7 @@ import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.OrientationEventListener;
 import android.view.SurfaceView;
 import android.view.TextureView;
@@ -108,8 +109,8 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
 
 
 
-// 在你的 Activity 或 Fragment 中初始化 OrientationEventListener
-
+    private float touchStartX = 0;
+    private long startPosition = 0;
 
     public void initPlay(Context context) {
         Object localObject = new ArrayList();
@@ -145,24 +146,44 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         //  一些列监听事件
         /*视频组件点击事件*/
         /*双击事件*/
-        mRootView.setOnTouchListener(new DoubleTapListener(context, new View.OnClickListener() {
+//        mRootView.setOnTouchListener(new DoubleTapListener(context, new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // 处理单击事件
+//                // 在这里执行你的单击操作
+//            }
+//        }, new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // 处理双击事件
+//                // 在这里执行你的双击操作
+//                handlePlay();
+//            }
+//        }));
+//        DoubleTapListener doubleTapListener = new DoubleTapListener(context,
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        // 处理单击事件
+//                        // 在这里执行你的单击操作
+//                    }
+//                },
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        // 处理双击事件
+//                        // 在这里执行你的双击操作，例如切换播放/暂停状态
+//                        handlePlay(); // 这里调用处理播放/暂停的方法
+//                    }
+//                });
+        mRootView.setOnTouchListener(new OnDoubleClickListener(new OnDoubleClickListener.DoubleClickCallback() {
             @Override
-            public void onClick(View v) {
-                // 处理单击事件
-                // 在这里执行你的单击操作
+            public void onDoubleClick() {
+                handlePlay();//处理双击事件
             }
-        }, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 处理双击事件
-                // 在这里执行你的双击操作
-                handlePlay();
-            }
-        }));
-        mRootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
+            @Override
+            public void onClick() {
                 // 先移除之前发送的
                 mRootView.removeCallbacks(mShowControllerRunnable);
                 mRootView.removeCallbacks(mHideControllerRunnable);
@@ -174,9 +195,62 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                     mRootView.post(mShowControllerRunnable);
                     mRootView.postDelayed(mHideControllerRunnable, 3000);
                 }
-
             }
-        });
+        }));
+//        mRootView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                // 先移除之前发送的
+//                mRootView.removeCallbacks(mShowControllerRunnable);
+//                mRootView.removeCallbacks(mHideControllerRunnable);
+//                if (mControllerShow) {
+//                    // 隐藏控制面板
+//                    mRootView.post(mHideControllerRunnable);
+//                } else {
+//                    // 显示控制面板
+//                    mRootView.post(mShowControllerRunnable);
+//                    mRootView.postDelayed(mHideControllerRunnable, 3000);
+//                }
+//
+//            }
+//        });
+
+        /*播放器滑动事件*/
+        // 在VlcVideoV2类中的成员变量中添加以下字段
+
+
+// 在initPlay方法中，为mRootView添加触摸事件监听器
+//        mRootView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                switch (event.getAction()) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        touchStartX = event.getX();
+//                        startPosition = mMediaPlayer.getTime();
+//                        break;
+//                    case MotionEvent.ACTION_MOVE:
+//                        float touchEndX = event.getX();
+//                        float deltaX = touchEndX - touchStartX;
+//                        long newPosition = (long) (startPosition + deltaX);
+//                        if (newPosition < 0) {
+//                            newPosition = 0;
+//                        }
+//                        if (newPosition > mMediaPlayer.getLength()) {
+//                            newPosition = mMediaPlayer.getLength();
+//                        }
+//                        System.out.println("8888-999" + newPosition);
+////                        mMediaPlayer.setTime(newPosition);
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//                        // 手指抬起时可以执行一些操作，如果需要的话
+//                        break;
+//                }
+//                return true; // 返回true表示已处理触摸事件
+//            }
+//        });
+
+
         /*播放控件点击*/
         mPlayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,8 +286,8 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 Log.v("NEW POS", "pos is ----  : " + i);
-                //if (i != 0)
-                //    libvlc.setPosition(((float) i / 100.0f));
+                if (i != 0)
+                    mMediaPlayer.setPosition(((float) i / 100.0f));
             }
 
             @Override
@@ -315,52 +389,6 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
             mPlayBtn.setImageResource(R.drawable.player_pause);
         }
     };
-
-//    /*初始化相关进度和时间控件相关绑定事件*/
-//    private Handler handlerSeekbar;
-//    private Runnable  runnableSeekbar;
-//
-//    public void initDurationAndSeekbar() {
-//        // SEEKBAR
-//        handlerSeekbar = new Handler();
-//        runnableSeekbar = new Runnable() {
-//            @Override
-//            public void run() {
-//                if (mMediaPlayer != null) {
-//                    long curTime = mMediaPlayer.getTime();
-//                    long totalTime = (long) (curTime / mMediaPlayer.getPosition());
-//                    int minutes = (int) (curTime / (60 * 1000));
-//                    int seconds = (int) ((curTime / 1000) % 60);
-//                    int endMinutes = (int) (totalTime / (60 * 1000));
-//                    int endSeconds = (int) ((totalTime / 1000) % 60);
-//                    String duration = String.format("%02d:%02d / %02d:%02d", minutes, seconds, endMinutes, endSeconds);
-//                    vlcSeekbar.setProgress((int) (mMediaPlayer.getPosition() * 100));
-//                    vlcDuration.setText(duration);
-//                }
-//                handlerSeekbar.postDelayed(runnableSeekbar, 1000);
-//            }
-//        };
-//
-//        runnableSeekbar.run();
-//        vlcSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-//                Log.v("NEW POS", "pos is : " + i);
-//                //if (i != 0)
-//                //    libvlc.setPosition(((float) i / 100.0f));
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//
-//            }
-//        });
-//    };
 
 
     private boolean mControllerShow = true;
@@ -719,7 +747,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
             case 278:
                 callbackEvent("ESSelected", null);
                 break;
-            case 273: // 获取视频时长
+            case 273: // 获取视频总时长
                 Map<String, Object> lengthChangedMap = new HashMap<>();
                 long milliseconds = paramEvent.getLengthChanged(); // 这是VLC返回的时长值
                 totalTimeFormat = getVideoFomatTime(milliseconds);

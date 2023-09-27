@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"Ir a inicio"</string>
+    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"Desplazarse hacia arriba"</string>
+    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"Más opciones"</string>
+    <string msgid="2571498368472823490" name="abc_action_mode_done">"Listo"</string>
+    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"Ver todo"</string>
+    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"Seleccionar una aplicación"</string>
+    <string msgid="3403923230105792483" name="abc_capital_off">"DESACTIVADO"</string>
+    <string msgid="7831734969929204599" name="abc_capital_on">"ACTIVADO"</string>
+    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"Suprimir"</string>
+    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"Intro"</string>
+    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Función +"</string>
+    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Mayús +"</string>
+    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"Espacio"</string>
+    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menú +"</string>
+    <string msgid="940844115270746197" name="abc_search_hint">"Buscar…"</string>
+    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"Borrar consulta"</string>
+    <string msgid="908784302972860853" name="abc_searchview_description_query">"Consulta de búsqueda"</string>
+    <string msgid="5466662225065974044" name="abc_searchview_description_search">"Buscar"</string>
+    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"Enviar consulta"</string>
+    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"Búsqueda por voz"</string>
+    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Compartir con"</string>
+    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Compartir con <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Ocultar"</string>
+    <string name="dcloud_common_allow">Permitir</string>
+    <string name="dcloud_common_cancel">Cancelar</string>
+    <string name="dcloud_common_close">Cerrar</string>
+    <string name="dcloud_common_download">Descargar</string>
+    <string name="dcloud_common_exit">Salida</string>
+    <string name="dcloud_common_fail">Fracaso</string>
+    <string name="dcloud_common_ignore">Ignorar</string>
+    <string name="dcloud_common_into">Entrada</string>
+    <string name="dcloud_common_no_allow">No permitido</string>
+    <string name="dcloud_common_ok">Confirmar</string>
+    <string name="dcloud_common_open">Abrir</string>
+    <string name="dcloud_common_refresh">Refrescar</string>
+    <string name="dcloud_common_retry">Reintentar</string>
+    <string name="dcloud_common_search">Buscar</string>
+    <string name="dcloud_common_set_up">Configuración</string>
+    <string name="dcloud_common_share">Compartir</string>
+    <string name="dcloud_common_tips">Prompt</string>
+    <string name="dcloud_gallery_Next">Siguiente paso</string>
+    <string name="dcloud_gallery_all_dir_name">Todas las imágenes y vídeos</string>
+    <string name="dcloud_gallery_all_image">Todas las imágenes</string>
+    <string name="dcloud_gallery_all_video">Todos los vídeos</string>
+    <string name="dcloud_gallery_cant_play_video">No hay programas para jugar</string>
+    <string name="dcloud_gallery_count_string">Un</string>
+    <string name="dcloud_gallery_done">Complete</string>
+    <string name="dcloud_gallery_edit">Editar</string>
+    <string name="dcloud_gallery_edit_image_all_photo">Todas las fotos</string>
+    <string name="dcloud_gallery_edit_image_cancel">Cancelar</string>
+    <string name="dcloud_gallery_edit_image_clip">Recortar</string>
+    <string name="dcloud_gallery_edit_image_done">Complete</string>
+    <string name="dcloud_gallery_edit_image_doodle">Graffiti</string>
+    <string name="dcloud_gallery_edit_image_enable_storage_permission">Activar permisos de almacenamiento</string>
+    <string name="dcloud_gallery_edit_image_enable_storage_tips">La función álbum requiere permisos de almacenamiento. Abra los permisos de almacenamiento para esta aplicación en la configuración</string>
+    <string name="dcloud_gallery_edit_image_mosaic">Mosaico</string>
+    <string name="dcloud_gallery_edit_image_mosaic_tip">Por favor, frote la imagen directamente.</string>
+    <string name="dcloud_gallery_edit_image_original">Mapa original</string>
+    <string name="dcloud_gallery_edit_image_preview">Previsualización</string>
+    <string name="dcloud_gallery_edit_image_reset">Reducción</string>
+    <string name="dcloud_gallery_edit_image_rotate">Rotación</string>
+    <string name="dcloud_gallery_edit_image_text">Texto</string>
+    <string name="dcloud_gallery_edit_image_undo">Revocación</string>
+    <string name="dcloud_gallery_library_name">Selector de medios</string>
+    <string name="dcloud_gallery_msg_amount_limit">Se ha alcanzado el límite máximo de selección</string>
+    <string name="dcloud_gallery_msg_size_limit">Por favor, comprima y Corte después de subir, el archivo sólo soporta el máximo</string>
+    <string name="dcloud_gallery_permission_explainer">Para ver más imágenes, permite el acceso a tu galería</string>
+    <string name="dcloud_gallery_permission_grant_button">Conceder</string>
+    <string name="dcloud_gallery_preview">Previsualización</string>
+    <string name="dcloud_gallery_read_external_storage">Necesita abrir permisos de almacenamiento de lectura</string>
+    <string name="dcloud_gallery_select">Selección</string>
+    <string name="dcloud_gallery_select_image_title">Seleccionar imagen</string>
+    <string name="dcloud_gallery_select_null">Por favor, seleccione un archivo</string>
+    <string name="dcloud_gallery_select_title">Seleccionar imágenes y vídeos</string>
+    <string name="dcloud_gallery_select_video_title">Seleccionar vídeo</string>
+    <string name="dcloud_gallery_video">Video</string>
+    <string name="dcloud_gallery_video_dir_name">Todos los vídeos</string>
+    <string name="dcloud_scan_no_permission_text">Se necesitan permisos de cámara</string>
+    <string name="dcloud_short_cut_created">"%s"Icono de escritorio creado</string>
+    <string name="dcloud_short_cut_created_removed_manually">, Por favor, elimine manualmente la copia</string>
+    <string name="dcloud_short_cut_if_create_tips">Desea instalar la aplicación “%s” en su escritorio móvil"</string>
+    <string msgid="730395136688082741" name="search_menu_title">"Buscar"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

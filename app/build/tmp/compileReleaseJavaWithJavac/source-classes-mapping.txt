@@ -1,0 +1,2 @@
+com/android/UniPlugin/BuildConfig.java
+ com.android.UniPlugin.BuildConfig

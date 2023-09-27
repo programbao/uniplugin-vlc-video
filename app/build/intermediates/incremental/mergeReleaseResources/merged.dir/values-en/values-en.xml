@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dcloud_dialog_loading">Loading...</string>
+    <string name="dcloud_gallery_Next">Next</string>
+    <string name="dcloud_gallery_all_dir_name">All Pictures &amp; Videos</string>
+    <string name="dcloud_gallery_all_image">All Photos</string>
+    <string name="dcloud_gallery_all_video">All Videos</string>
+    <string name="dcloud_gallery_cant_play_video">No programs to play</string>
+    <string name="dcloud_gallery_count_string"/>
+    <string name="dcloud_gallery_done">Done</string>
+    <string name="dcloud_gallery_edit">Edit</string>
+    <string name="dcloud_gallery_edit_image_all_photo">All Photos</string>
+    <string name="dcloud_gallery_edit_image_cancel">Cancel</string>
+    <string name="dcloud_gallery_edit_image_clip">Clip</string>
+    <string name="dcloud_gallery_edit_image_done">Done</string>
+    <string name="dcloud_gallery_edit_image_doodle">Doodle</string>
+    <string name="dcloud_gallery_edit_image_enable_storage_permission">Please enable storage permission</string>
+    <string name="dcloud_gallery_edit_image_enable_storage_tips">Need Storage,please turn on in the settings</string>
+    <string name="dcloud_gallery_edit_image_mosaic">Mosaic</string>
+    <string name="dcloud_gallery_edit_image_mosaic_tip">Please draw on the picture</string>
+    <string name="dcloud_gallery_edit_image_original">Full Image</string>
+    <string name="dcloud_gallery_edit_image_preview">Preview</string>
+    <string name="dcloud_gallery_edit_image_reset">Restore</string>
+    <string name="dcloud_gallery_edit_image_rotate">Rotate</string>
+    <string name="dcloud_gallery_edit_image_text">Text</string>
+    <string name="dcloud_gallery_edit_image_undo">Undo</string>
+    <string name="dcloud_gallery_library_name"/>
+    <string name="dcloud_gallery_msg_amount_limit">Maximum number of photos or videos</string>
+    <string name="dcloud_gallery_msg_size_limit">Please upload after compressing and cutting, the largest file only supports</string>
+    <string name="dcloud_gallery_permission_explainer">To see more images, allow access to your gallery</string>
+    <string name="dcloud_gallery_permission_grant_button">Grant</string>
+    <string name="dcloud_gallery_preview">Preview</string>
+    <string name="dcloud_gallery_read_external_storage">Need to open storage permission</string>
+    <string name="dcloud_gallery_select">Select</string>
+    <string name="dcloud_gallery_select_image_title">Photos</string>
+    <string name="dcloud_gallery_select_null">You must select at least one file before previewing</string>
+    <string name="dcloud_gallery_select_title">Photos/Videos</string>
+    <string name="dcloud_gallery_select_video_title">Videos</string>
+    <string name="dcloud_gallery_video">Video</string>
+    <string name="dcloud_gallery_video_dir_name">All Videos</string>
+    <string name="dcloud_privacy_prompt_button_visitor_mode">visitor mode</string>
+    <string name="dcloud_scan_no_permission_text">Need camera permission</string>
+    <string name="dcloud_short_cut_created">"%s"Desktop icon created</string>
+    <string name="dcloud_short_cut_created_removed_manually">, Please delete the duplicate manually</string>
+    <string name="dcloud_short_cut_if_create_tips">Do you want to install the app “%s” on your mobile desk"</string>
+</resources>
