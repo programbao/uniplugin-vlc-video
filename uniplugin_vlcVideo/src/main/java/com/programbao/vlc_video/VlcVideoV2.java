@@ -121,6 +121,30 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         ((ArrayList) localObject).add("--rtsp-tcp");
         ((ArrayList) localObject).add("--avcodec-hw=any");
         ((ArrayList) localObject).add("--live-caching=0");
+//        /正式参数配置
+//        //值越大，缓存越大，延迟越大。这三项是延迟设置
+//        options.add(":clock-jitter=0");
+//        options.add(":clock-synchro=0");
+////        涉及延迟的参数有：network-caching（网络缓存）、live-caching（直播缓存）、file-caching（文件缓存）、sout-mux-caching（输出缓存）。
+//        options.add("--rtsp-caching=500");//
+//        options.add("--tcp-caching=500");//TCP输入缓存值 (毫秒)
+//        options.add("--realrtsp-caching=500");//RTSP缓存值 (毫秒)
+//        options.add("--network-caching=500");//网络缓存
+//        options.add(":live-caching=500");//直播缓存
+//        options.add(":file-caching=500");//文件缓存
+//        options.add("--file-caching");//文件缓存
+//        options.add("--sout-mux-caching=500");//输出缓存
+//        options.add("--no-drop-late-frames");//关闭丢弃晚的帧 (默认打开)
+//        options.add("--no-skip-frames");//关闭跳过帧 (默认打开)
+//        options.add(":rtsp-frame-buffer-size=500"); //RTSP帧缓冲大小，默认大小为100000
+//        options.add("--rtsp-tcp");
+//        options.add("--http-reconnect");    //: 重连
+//        options.add("--deinterlace");    //: 交错
+//        options.add("" + getDeblocking(-1));//这里太大了消耗性能   太小了会花屏
+//        options.add("--deinterlace-mode={discard,blend,mean,bob,linear,x}");// 视频译码器 解除交错模式
+//        options.add("--network-synchronisation");// 网络同步化 (默认关闭)
+
+
         mLibVLC = new LibVLC(context, (ArrayList<String>) localObject);
         mMediaPlayer = new MediaPlayer(mLibVLC);
         VlcVideoView vlcVideoView = new VlcVideoView(context);
@@ -166,7 +190,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                 } else {
                     // 显示控制面板
                     mRootView.post(mShowControllerRunnable);
-                    mRootView.postDelayed(mHideControllerRunnable, 3000);
+                    mRootView.postDelayed(mHideControllerRunnable, 5000);
                 }
             }
 
@@ -254,18 +278,22 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         radioGroupView.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                System.out.println("checkedIdcheckedId ---" + checkedId);
                 // 在这里处理选中的RadioButton变化
                 if (checkedId == R.id.radioButton1) {// 选中了0.5x，执行相应的操作，例如更改播放速度
-//                        changePlaybackSpeed(0.5f);
+                    mSpeedBtn.setText("0.5x");
+                    mMediaPlayer.setRate(0.5f);
                 } else if (checkedId == R.id.radioButton2) {// 选中了1.0x，执行相应的操作
-//                        changePlaybackSpeed(1.0f);
+                    mSpeedBtn.setText("1.0x");
+                    mMediaPlayer.setRate(1.0f);
                 } else if (checkedId == R.id.radioButton3) {// 选中了1.25x，执行相应的操作
-//                        changePlaybackSpeed(1.25f);
+                    mSpeedBtn.setText("1.25x");
+                    mMediaPlayer.setRate(1.25f);
                 } else if (checkedId == R.id.radioButton4) {// 选中了1.5x，执行相应的操作
-//                        changePlaybackSpeed(1.5f);
+                    mSpeedBtn.setText("1.5x");
+                    mMediaPlayer.setRate(1.5f);
                 } else if (checkedId == R.id.radioButton5) {// 选中了2.0x，执行相应的操作
-//                        changePlaybackSpeed(2.0f);
+                    mSpeedBtn.setText("2.0x");
+                    mMediaPlayer.setRate(2.0f);
                 }
             }
         });
@@ -309,28 +337,14 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                 } catch (Exception var4) {
                     throw new RuntimeException("Invalid asset folder");
                 }
-//                System.out.println("vlcContainerView.getHeight: " + vlcContainerView.getHeight());
-//                // 创建一个定时器,延迟3秒执行
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        enterFullScreen();
-//                    }
-//                }, 3000); // 3秒delay
-////
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        exitFullScreen();
-//                    }
-//                }, 10000);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        vlcContainerView.postDelayed(mHideControllerRunnable, 3000);
+                        vlcContainerView.postDelayed(mHideControllerRunnable, 5000);
                     }
                 }, 3000); // 3秒delay
                 mMediaPlayer.play();
+                mPlayBtn.setImageResource(R.drawable.player_pause);
                 isPlay = true;
                 /*屏幕常亮*/
                 activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -434,6 +448,8 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
 //                mControlLeftLayout.setVisibility(INVISIBLE);
 //            }
         });
+        /*隐藏倍数选择控件*/
+        mControlMiddleSpeedLayout.setVisibility(GONE);
         animator.start();
     }
 
@@ -514,6 +530,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
 
     //    调整播放器视图
     public void adjustSurfaceView() {
+        vlcVout.detachViews();
         surfaceView.post(new Runnable() {
             @Override
             public void run() {
@@ -531,8 +548,9 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
     }
 
     @JSMethod
-    public void setPlayerTitle(String title) {
-        this.mTitle = title;
+    public void setPlayerTitle(JSONObject paramJSONObject) {
+        String title = paramJSONObject.getString("title");
+        mTitle = title;
         mTopTitle.setText(mTitle + "");
     }
 
@@ -570,6 +588,12 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         this.mMediaPlayer.setRate(rate);
     }
 
+    /*设置播放地址*/
+    @UniJSMethod(uiThread=false)
+    public void setUrl(JSONObject paramJSONObject) {
+        String path = paramJSONObject.getString("url");
+        play(path);
+    }
 
     // 生命周期方法
     @Override

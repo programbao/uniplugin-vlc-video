@@ -63,6 +63,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array speed_options
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -2464,6 +2465,7 @@ id guide_title
 id hideable
 id home
 id homeAsUp
+id horizontalScrollView
 id ib_clip_cancel
 id ib_clip_done
 id ib_clip_rotate
@@ -2488,6 +2490,8 @@ id iv_play
 id labeled
 id largeLabel
 id layout_control_bottom
+id layout_control_middle_spend_select
+id layout_control_right
 id layout_control_top
 id layout_footer
 id layout_op_sub
@@ -2572,6 +2576,12 @@ id progress_circular
 id progress_horizontal
 id query_page
 id radio
+id radioButton1
+id radioButton2
+id radioButton3
+id radioButton4
+id radioButton5
+id radioGroup
 id rb_doodle
 id rb_mosaic
 id rb_select
@@ -2636,6 +2646,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id speed_btn
 id split_action_bar
 id src_atop
 id src_in
