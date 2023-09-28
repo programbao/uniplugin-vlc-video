@@ -1,70 +1,98 @@
 package com.programbao.vlc_video;
 
-import android.content.Context;
-import android.view.GestureDetector;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.RelativeLayout;
 
-/**
- * Created by Administrator on 2018/4/24.
- * 双击
- */
+import org.videolan.libvlc.MediaPlayer;
 
 public class OnDoubleClickListener implements View.OnTouchListener {
 
-    private int count = 0;//点击次数
-    private long firstClick = 0;//第一次点击时间
-    private long secondClick = 0;//第二次点击时间
-    /**
-     * 两次点击时间间隔，单位毫秒
-     */
-    private final int totalTime = 200;
-    /**
-     * 自定义回调接口
-     */
+    private static final int DOUBLE_CLICK_DELAY = 200; // 双击的时间间隔，单位毫秒
+    private static final int SINGLE_CLICK_DELAY = 300; // 单击的时间间隔，单位毫秒
+
+    private int clickCount = 0; // 点击次数
+    private long lastClickTime = 0; // 上次点击时间
+    private boolean waitingForSecondClick = false; // 是否等待第二次点击
+    private float touchStartX = 0;
+    private long startPosition = 0;
     private DoubleClickCallback mCallback;
+
+    private MediaPlayer mMediaPlayer;
 
     public interface DoubleClickCallback {
         void onDoubleClick();
+
         void onClick();
-    }
-    public OnDoubleClickListener(DoubleClickCallback callback) {
-        super();
-        this.mCallback = callback;
+
+//        void onTouch();
+
+        void onTouch(View v, MotionEvent event, float touchStartX, long startPosition);
     }
 
-    /**
-     * 触摸事件处理
-     * @param v
-     * @param event
-     * @return
-     */
+    public OnDoubleClickListener(MediaPlayer mMediaPlayer, DoubleClickCallback callback) {
+        super();
+        this.mCallback = callback;
+        this.mMediaPlayer = mMediaPlayer;
+    }
+
+    private Handler handler = new Handler(Looper.getMainLooper());
+    private Runnable singleClickRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (clickCount == 1) {
+                mCallback.onClick();
+            }
+            clickCount = 0;
+            waitingForSecondClick = false;
+        }
+    };
+
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (MotionEvent.ACTION_DOWN == event.getAction()) {//按下
-            count++;
-            if (1 == count) {
-                firstClick = System.currentTimeMillis();//记录第一次点击时间
-                /*处理点击事件*/
-                mCallback.onClick();
-            } else if (2 == count) {
-                secondClick = System.currentTimeMillis();//记录第二次点击时间
-                if (secondClick - firstClick < totalTime) {//判断二次点击时间间隔是否在设定的间隔时间之内
-                    if (mCallback != null) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                if (clickCount == 0) {
+                    long currentTime = System.currentTimeMillis();
+//                    System.out.println("currentTime--" + currentTime + "  lastClickTime--" + lastClickTime + "currentTime - lastClickTime " + (currentTime - lastClickTime) );
+//                    if (lastClickTime <= 0) {
+//                        lastClickTime = currentTime;
+//                    }
+//                    if (currentTime - lastClickTime <= SINGLE_CLICK_DELAY) {
+//                        // 在一定时间内连续点击了，等待第二次点击
+//                        waitingForSecondClick = true;
+//                    } else {
+////                        handler.postDelayed(singleClickRunnable, SINGLE_CLICK_DELAY);
+//                    }
+                    waitingForSecondClick = true;
+                    // 单击
+                    handler.postDelayed(singleClickRunnable, SINGLE_CLICK_DELAY);
+                    lastClickTime = currentTime;
+                } else if (clickCount == 1) {
+                    long currentTime = System.currentTimeMillis();
+                    if (waitingForSecondClick && (currentTime - lastClickTime <= DOUBLE_CLICK_DELAY)) {
+                        // 连续点击了两次，且时间间隔在规定范围内，认为是双击
                         mCallback.onDoubleClick();
+//                        handler.removeCallbacks(singleClickRunnable);
+                        clickCount = 0;
+                        waitingForSecondClick = false;
                     }
-                    count = 0;
-                    firstClick = 0;
-                } else if (secondClick - firstClick > totalTime + 200) { // 触摸事件
-                    firstClick = secondClick;
-                    count = 1;
-                } else { // 点击事件
-                    firstClick = secondClick;
-                    count = 1;
                 }
-                secondClick = 0;
-            }
+                clickCount++;
+                /*初始触摸相关的字段*/
+                touchStartX = event.getX();
+                startPosition = mMediaPlayer.getTime();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                // 在触摸移动事件中处理滑动事件
+                if (mCallback != null) {
+                    mCallback.onTouch(v, event, touchStartX, startPosition);
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                // 在触摸事件结束时可以执行一些操作
+                break;
         }
         return true;
     }

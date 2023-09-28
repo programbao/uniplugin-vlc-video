@@ -10,23 +10,19 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Handler;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.OrientationEventListener;
 import android.view.SurfaceView;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -69,6 +65,15 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
     private LinearLayout mControlTopLayout;
     /*底部控件*/
     private RelativeLayout mControlBottomLayout;
+    /*右边控件*/
+    private LinearLayout mControlRightLayout;
+    /*中间倍速选择控件*/
+    private LinearLayout mControlMiddleSpeedLayout;
+    /*倍速控件*/
+    private TextView mSpeedBtn;
+    /*倍速选择组控件*/
+    private RadioGroup radioGroupView;
+
     /*顶部返回控件*/
     private ImageView mTopBack;
     /*标题*/
@@ -82,14 +87,14 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
 
     private ImageView mPlayBtn;
 
-    private int GESTURE_FLAG = 0;// 1,调节进度，2，调节音量,3.调节亮度
 
     private IVLCVout vlcVout;
     Activity activity; // 在初始化时传入
 
     private boolean isFullscreen = false; // 标记是否处于全屏模式
     private boolean isPlay = false; // 标记是否处于播放
-
+    private boolean isShowMiddleSelectSpeed = false; // 标记是否处于倍速控件选择
+    ImageView fullControl;
     private OrientationEventListener orientationEventListener;  // 横竖屏变化事件监听
 
     public VlcVideoV2(WXSDKInstance instance, WXVContainer parent, BasicComponentData basicComponentData) {
@@ -108,18 +113,14 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
     }
 
 
-
-    private float touchStartX = 0;
-    private long startPosition = 0;
-
     public void initPlay(Context context) {
         Object localObject = new ArrayList();
-        ((ArrayList)localObject).add("-vvv");
-        ((ArrayList)localObject).add("--no-drop-late-frames");
-        ((ArrayList)localObject).add("--no-skip-frames");
-        ((ArrayList)localObject).add("--rtsp-tcp");
-        ((ArrayList)localObject).add("--avcodec-hw=any");
-        ((ArrayList)localObject).add("--live-caching=0");
+        ((ArrayList) localObject).add("-vvv");
+        ((ArrayList) localObject).add("--no-drop-late-frames");
+        ((ArrayList) localObject).add("--no-skip-frames");
+        ((ArrayList) localObject).add("--rtsp-tcp");
+        ((ArrayList) localObject).add("--avcodec-hw=any");
+        ((ArrayList) localObject).add("--live-caching=0");
         mLibVLC = new LibVLC(context, (ArrayList<String>) localObject);
         mMediaPlayer = new MediaPlayer(mLibVLC);
         VlcVideoView vlcVideoView = new VlcVideoView(context);
@@ -130,53 +131,25 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         mRootView = vlcVideoView.getmRootView();
         mControlTopLayout = vlcVideoView.getmControlTopLayout();
         mControlBottomLayout = vlcVideoView.getmControlBottomLayout();
+        mControlRightLayout = vlcVideoView.getmControlRightLayout();
+        mControlMiddleSpeedLayout = vlcVideoView.getmControlMiddleSpeedLayout();
         mTopBack = vlcVideoView.getmTopBack();
         mTopTitle = vlcVideoView.getmTopTitle();
         mPlayBtn = vlcVideoView.getmPlayBtn();
         vlcDuration = vlcVideoView.getVlcDuration();
         vlcSeekbar = vlcVideoView.getVlcSeekbar();
+        fullControl = vlcVideoView.getFullControll();
+        mSpeedBtn = vlcVideoView.getmSpeedBtn();
+        radioGroupView = vlcVideoView.getRadioGroupView();
 
         vlcVout = mMediaPlayer.getVLCVout();
 
-        ImageView fullControl = vlcVideoView.getFullControll();
 
         // 设置各种控件状态
         /*默认隐藏*/
         mTopBack.setVisibility(GONE);
-        //  一些列监听事件
-        /*视频组件点击事件*/
-        /*双击事件*/
-//        mRootView.setOnTouchListener(new DoubleTapListener(context, new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // 处理单击事件
-//                // 在这里执行你的单击操作
-//            }
-//        }, new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // 处理双击事件
-//                // 在这里执行你的双击操作
-//                handlePlay();
-//            }
-//        }));
-//        DoubleTapListener doubleTapListener = new DoubleTapListener(context,
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        // 处理单击事件
-//                        // 在这里执行你的单击操作
-//                    }
-//                },
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        // 处理双击事件
-//                        // 在这里执行你的双击操作，例如切换播放/暂停状态
-//                        handlePlay(); // 这里调用处理播放/暂停的方法
-//                    }
-//                });
-        mRootView.setOnTouchListener(new OnDoubleClickListener(new OnDoubleClickListener.DoubleClickCallback() {
+        mControlMiddleSpeedLayout.setVisibility(GONE);
+        mRootView.setOnTouchListener(new OnDoubleClickListener(mMediaPlayer, new OnDoubleClickListener.DoubleClickCallback() {
             @Override
             public void onDoubleClick() {
                 handlePlay();//处理双击事件
@@ -196,59 +169,29 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                     mRootView.postDelayed(mHideControllerRunnable, 3000);
                 }
             }
+
+            @Override
+            public void onTouch(View v, MotionEvent event, float touchStartX, long startPosition) {
+//                System.out.println("mMediaPlayer.getTime() --" + mMediaPlayer.getTime() + "mMediaPlayer.getLength()--"+mMediaPlayer.getLength());
+//                touchStartX = event.getX();
+                System.out.println("event.getAction() --- " + event.getAction());
+                float touchEndX = event.getX();
+                float deltaX = touchEndX - touchStartX;
+                // 根据滑动的距离来调整时间
+                long newPosition = startPosition + (long) (deltaX * mMediaPlayer.getLength() / v.getWidth()) / 10;
+                if (newPosition < 0) {
+                    newPosition = 0;
+                }
+                if (newPosition > mMediaPlayer.getLength()) {
+                    newPosition = mMediaPlayer.getLength();
+                }
+                // 更新进度条位置
+                vlcSeekbar.setProgress((int) (newPosition * 100 / mMediaPlayer.getLength()));
+                // 更新电影对象的位置
+                mMediaPlayer.setTime(newPosition);
+            }
         }));
-//        mRootView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                // 先移除之前发送的
-//                mRootView.removeCallbacks(mShowControllerRunnable);
-//                mRootView.removeCallbacks(mHideControllerRunnable);
-//                if (mControllerShow) {
-//                    // 隐藏控制面板
-//                    mRootView.post(mHideControllerRunnable);
-//                } else {
-//                    // 显示控制面板
-//                    mRootView.post(mShowControllerRunnable);
-//                    mRootView.postDelayed(mHideControllerRunnable, 3000);
-//                }
-//
-//            }
-//        });
 
-        /*播放器滑动事件*/
-        // 在VlcVideoV2类中的成员变量中添加以下字段
-
-
-// 在initPlay方法中，为mRootView添加触摸事件监听器
-//        mRootView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                switch (event.getAction()) {
-//                    case MotionEvent.ACTION_DOWN:
-//                        touchStartX = event.getX();
-//                        startPosition = mMediaPlayer.getTime();
-//                        break;
-//                    case MotionEvent.ACTION_MOVE:
-//                        float touchEndX = event.getX();
-//                        float deltaX = touchEndX - touchStartX;
-//                        long newPosition = (long) (startPosition + deltaX);
-//                        if (newPosition < 0) {
-//                            newPosition = 0;
-//                        }
-//                        if (newPosition > mMediaPlayer.getLength()) {
-//                            newPosition = mMediaPlayer.getLength();
-//                        }
-//                        System.out.println("8888-999" + newPosition);
-////                        mMediaPlayer.setTime(newPosition);
-//                        break;
-//                    case MotionEvent.ACTION_UP:
-//                        // 手指抬起时可以执行一些操作，如果需要的话
-//                        break;
-//                }
-//                return true; // 返回true表示已处理触摸事件
-//            }
-//        });
 
 
         /*播放控件点击*/
@@ -263,15 +206,9 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         fullControl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isFullscreen) {
-                    fullControl.setImageResource(R.drawable.nur_ic_fangda);
-                    exitFullScreen(null, null);
-                } else {
-                    enterFullScreen(null, null);
-                    fullControl.setImageResource(R.drawable.nur_ic_fangxiao);
-                }
                 // 在按钮点击时执行的代码
                 // 例如：处理按钮点击事件
+                handleFullScreenStatus();
             }
         });
         /*顶部返回控件点击事件*/
@@ -300,6 +237,39 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
 
             }
         });
+        /*倍速控件点击*/
+        mSpeedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*显示中间倍速选择控件*/
+                if (isShowMiddleSelectSpeed) {
+                    mControlMiddleSpeedLayout.setVisibility(GONE);
+                    isShowMiddleSelectSpeed = false;
+                } else {
+                    mControlMiddleSpeedLayout.setVisibility(VISIBLE);
+                    isShowMiddleSelectSpeed = true;
+                }
+            }
+        });
+        radioGroupView.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                System.out.println("checkedIdcheckedId ---" + checkedId);
+                // 在这里处理选中的RadioButton变化
+                if (checkedId == R.id.radioButton1) {// 选中了0.5x，执行相应的操作，例如更改播放速度
+//                        changePlaybackSpeed(0.5f);
+                } else if (checkedId == R.id.radioButton2) {// 选中了1.0x，执行相应的操作
+//                        changePlaybackSpeed(1.0f);
+                } else if (checkedId == R.id.radioButton3) {// 选中了1.25x，执行相应的操作
+//                        changePlaybackSpeed(1.25f);
+                } else if (checkedId == R.id.radioButton4) {// 选中了1.5x，执行相应的操作
+//                        changePlaybackSpeed(1.5f);
+                } else if (checkedId == R.id.radioButton5) {// 选中了2.0x，执行相应的操作
+//                        changePlaybackSpeed(2.0f);
+                }
+            }
+        });
+
 
         mMediaPlayer.setEventListener(new MediaPlayer.EventListener() {
             @Override
@@ -309,22 +279,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
             }
         });
 
-//        orientationEventListener = new OrientationEventListener(getContext(), SensorManager.SENSOR_DELAY_NORMAL) {
-//            @Override
-//            public void onOrientationChanged(int orientation) {
-//                // 这里会在屏幕方向发生变化时调用
-//                // orientation 变量包含了当前的屏幕方向，通常是 0、90、180、270 等值
-//                // 在这里可以根据需要执行相关操作
-//                System.out.println("横竖屏变化了 ------");
-//                if (orientation == 90 || orientation == 270) {
-//                    // 手机处于横屏方向，执行你的操作
-//                    // 注意：这里的操作可能会在不同方向之间切换多次，你可以加入一些条件来控制只在特定方向执行操作
-//                    System.out.println("横竖屏变化了 ------");
-//                }
-//            }
-//        };
-//        // 启用方向监听器
-//        orientationEventListener.enable();
+
     }
 
     @WXComponentProp(name = "play")
@@ -377,9 +332,14 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                 }, 3000); // 3秒delay
                 mMediaPlayer.play();
                 isPlay = true;
+                /*屏幕常亮*/
+                activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                /*关闭常亮*/
+                // activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             }
         });
     }
+
     public void handlePlay() {
         if (isPlay) {
             pause(null, null);
@@ -389,6 +349,17 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
             mPlayBtn.setImageResource(R.drawable.player_pause);
         }
     };
+
+    /*处理是否进入或退出全屏*/
+    public void handleFullScreenStatus() {
+        if (isFullscreen) {
+            fullControl.setImageResource(R.drawable.nur_ic_fangda);
+            exitFullScreen(null, null);
+        } else {
+            enterFullScreen(null, null);
+            fullControl.setImageResource(R.drawable.nur_ic_fangxiao);
+        }
+    }
 
 
     private boolean mControllerShow = true;
@@ -409,6 +380,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
             hideController();
         }
     };
+
     /**
      * 显示面板
      */
@@ -419,7 +391,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         mControllerShow = true;
         ObjectAnimator.ofFloat(mControlTopLayout, "translationY", -mControlTopLayout.getHeight(), 0).start();
         ObjectAnimator.ofFloat(mControlBottomLayout, "translationY", mControlBottomLayout.getHeight(), 0).start();
-//        ObjectAnimator.ofFloat(mControlRightLayout, "translationX", mControlRightLayout.getWidth() + getResources().getDimension(R.dimen.padding_5), 0).start();
+        ObjectAnimator.ofFloat(mControlRightLayout, "translationX", mControlRightLayout.getWidth() + mControlRightLayout.getResources().getDimension(R.dimen.padding_5), 0).start();
 
         ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
         animator.setDuration(200);
@@ -448,7 +420,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         mControllerShow = false;
         ObjectAnimator.ofFloat(mControlTopLayout, "translationY", 0, -mControlTopLayout.getHeight()).start();
         ObjectAnimator.ofFloat(mControlBottomLayout, "translationY", 0, mControlBottomLayout.getHeight()).start();
-//        ObjectAnimator.ofFloat(mControlRightLayout, "translationX", 0, mControlRightLayout.getWidth() + getResources().getDimension(R.dimen.padding_5)).start();
+        ObjectAnimator.ofFloat(mControlRightLayout, "translationX", 0, mControlRightLayout.getWidth() + mControlRightLayout.getResources().getDimension(R.dimen.padding_5)).start();
         ValueAnimator animator = ValueAnimator.ofFloat(1f, 0f);
         animator.setDuration(200);
         animator.addUpdateListener(animation -> {
@@ -465,25 +437,6 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         animator.start();
     }
 
-//    private void toggleFullscreen(boolean fullscreen)
-//    {
-//        WindowManager.LayoutParams attrs = activity.getWindow().getAttributes();
-//        if (fullscreen)
-//        {
-//            attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
-//            vlcContainerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-//                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-//                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-//                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-//                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-//                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-//        }
-//        else
-//        {
-//            attrs.flags &= ~WindowManager.LayoutParams.FLAG_FULLSCREEN;
-//        }
-//        activity.getWindow().setAttributes(attrs);
-//    }
 
     /*进入全屏*/
     @JSMethod
@@ -494,24 +447,24 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         this.vlcVout.detachViews();
         // 横屏
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         hideNavigationBar();
         new Handler().postDelayed(new Runnable() {
-          @Override
-          public void run() {
-              /*进入全屏*/
-              activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-              ViewGroup localViewGroup = (ViewGroup) activity.getWindow().getDecorView();
-              ((ViewGroup)getParent().getHostView()).removeView(getHostView());
-              FrameLayout.LayoutParams localLayoutParams = new FrameLayout.LayoutParams(-1, -1);
-              localViewGroup.addView(getHostView(), localLayoutParams);
-              adjustSurfaceView();
-              if (callback != null) {
-                  callback.invoke(isFullscreen);
-              }
-              /*显示顶部返回控件*/
-              mTopBack.setVisibility(VISIBLE);
-          }
+            @Override
+            public void run() {
+                /*进入全屏*/
+                activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                ViewGroup localViewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                ((ViewGroup) getParent().getHostView()).removeView(getHostView());
+                FrameLayout.LayoutParams localLayoutParams = new FrameLayout.LayoutParams(-1, -1);
+                localViewGroup.addView(getHostView(), localLayoutParams);
+                adjustSurfaceView();
+                if (callback != null) {
+                    callback.invoke(isFullscreen);
+                }
+                /*显示顶部返回控件*/
+                mTopBack.setVisibility(VISIBLE);
+            }
         }, 500);
 
     }
@@ -530,12 +483,11 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
             public void run() {
                 activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 ((ViewGroup) activity.getWindow().getDecorView()).removeView(getHostView());
-                ViewGroup localViewGroup = (ViewGroup)getParent().getHostView();
+                ViewGroup localViewGroup = (ViewGroup) getParent().getHostView();
                 View localView = getHostView();
-                localViewGroup.addView(localView,  new FrameLayout.LayoutParams(-1, -1));
+                localViewGroup.addView(localView, new FrameLayout.LayoutParams(-1, -1));
 
                 adjustSurfaceView();
-                activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                 if (callback != null) {
                     callback.invoke(isFullscreen);
                 }
@@ -559,6 +511,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                 | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
     }
+
     //    调整播放器视图
     public void adjustSurfaceView() {
         surfaceView.post(new Runnable() {
@@ -592,8 +545,9 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
             isPlay = false;
         }
     }
+
     // 播放
-    @UniJSMethod(uiThread=false)
+    @UniJSMethod(uiThread = false)
     public void toPlay() {
         MediaPlayer localMediaPlayer = this.mMediaPlayer;
         if (localMediaPlayer != null) {
@@ -604,7 +558,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
     }
 
     // 终止
-    @UniJSMethod(uiThread=false)
+    @UniJSMethod(uiThread = false)
     public void stop() {
         mMediaPlayer.stop();
     }
@@ -615,6 +569,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         float rate = paramJSONObject.getFloatValue("rate");
         this.mMediaPlayer.setRate(rate);
     }
+
 
     // 生命周期方法
     @Override
@@ -645,6 +600,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         this.mMediaPlayer.pause();
         this.vlcVout.detachViews();
     }
+
     @Override
     public void onActivityDestroy() {
         super.onActivityDestroy();
@@ -653,23 +609,21 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         // 在销毁时禁用方向监听器
         orientationEventListener.disable();
     }
-    void callbackEvent(String paramString, Map paramMap)
-    {
+
+    void callbackEvent(String paramString, Map paramMap) {
         int i = getEvents().size();
         int j = 0;
         int m;
-        for (int k = 0; ; k++)
-        {
+        for (int k = 0; ; k++) {
             m = j;
             if (k >= i)
                 break;
-            if (!((String)getEvents().get(k)).equals(paramString))
+            if (!((String) getEvents().get(k)).equals(paramString))
                 continue;
             m = 1;
             break;
         }
-        if (m != 0)
-        {
+        if (m != 0) {
             HashMap localHashMap = new HashMap();
             if (paramMap != null)
                 localHashMap.put("detail", paramMap);
@@ -677,10 +631,10 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         }
     }
 
-    private void log(String paramString)
-    {
+    private void log(String paramString) {
         Log.e("VlcPlugin", paramString);
     }
+
     private String getVideoFomatTime(long milliseconds) {
 //        long milliseconds = paramEvent.getLengthChanged(); // 这是VLC返回的时长值
         // 将毫秒转换为秒
@@ -694,7 +648,9 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         // 构建时间字符串
         return String.format("%02d:%02d:%02d", hours, minutes, remainingSeconds);
     }
+
     private String totalTimeFormat;
+
     public void videoPlayerEvent(MediaPlayer.Event paramEvent) {
         int eventType = paramEvent.type;
 
@@ -767,27 +723,5 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         }
     }
 
-
-//    @Override
-//    public boolean onKey(View view, int keyCode, KeyEvent event) {
-//        // 检查是否按下了返回键
-//        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
-//            // 执行你的返回操作
-//            handleBackButtonPress();
-//            return true; // 返回 true 表示已处理返回事件
-//        }
-//        return false; // 返回 false 表示未处理返回事件
-//    }
-//    private void handleBackButtonPress() {
-//        // 处理返回事件的代码
-//        // 可以是退出全屏、停止播放等操作
-//        if (isFullscreen) {
-//            exitFullScreen(null, null);
-//        } else {
-//            // 处理非全屏状态下的返回操作
-//            // 可能是停止播放、关闭播放器等操作
-////            stopPlayback();
-//        }
-//    }
 
 }

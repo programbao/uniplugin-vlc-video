@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -23,11 +24,15 @@ public class VlcVideoView extends FrameLayout {
     private RelativeLayout vlcContainerView;
 
     private LinearLayout mControlTopLayout;
+    private LinearLayout mControlRightLayout;
+    private LinearLayout mControlMiddleSpeedLayout;
     private RelativeLayout mControlBottomLayout;
-
+    private RadioGroup radioGroupView;
     private TextView mTopTitle;
     private ImageView mTopBack;
     private ImageView mPlayBtn;
+
+    private TextView mSpeedBtn;
 
     private TextView vlcDuration;
 
@@ -66,6 +71,11 @@ public class VlcVideoView extends FrameLayout {
         mTopBack = findViewById(R.id.iv_back);
 
         mControlBottomLayout = findViewById(R.id.layout_control_bottom);
+        mControlRightLayout = findViewById(R.id.layout_control_right);
+        mSpeedBtn = findViewById(R.id.speed_btn);
+        mControlMiddleSpeedLayout = findViewById(R.id.layout_control_middle_spend_select);
+
+        radioGroupView = findViewById(R.id.radioGroup);
 
         mPlayBtn = findViewById(R.id.iv_play);
 
@@ -75,12 +85,18 @@ public class VlcVideoView extends FrameLayout {
 //        mVideoView.setPlayerBufferingIndicator(mProgressbar);
 
     }
+
+    public  RadioGroup getRadioGroupView() {return  radioGroupView; };
+
     public TextView getVlcDuration() { return  vlcDuration; };
+    public TextView getmSpeedBtn() { return  mSpeedBtn; };
     public SeekBar getVlcSeekbar() { return  vlcSeekbar; };
     public ImageView getmPlayBtn() { return  mPlayBtn; };
     public ImageView getmTopBack() { return  mTopBack; };
     public TextView getmTopTitle() { return  mTopTitle; };
     public LinearLayout getmControlTopLayout() { return mControlTopLayout; };
+    public LinearLayout getmControlRightLayout() { return mControlRightLayout; };
+    public LinearLayout getmControlMiddleSpeedLayout() { return mControlMiddleSpeedLayout; };
     public RelativeLayout getmControlBottomLayout() { return mControlBottomLayout; };
 
     public SurfaceView getVideoView() {
