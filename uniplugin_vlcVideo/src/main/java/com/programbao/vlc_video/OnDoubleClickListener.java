@@ -21,6 +21,8 @@ public class OnDoubleClickListener implements View.OnTouchListener {
 
     private MediaPlayer mMediaPlayer;
 
+    private long startTime;
+
     public interface DoubleClickCallback {
         void onDoubleClick();
 
@@ -69,6 +71,7 @@ public class OnDoubleClickListener implements View.OnTouchListener {
                     // 单击
                     handler.postDelayed(singleClickRunnable, SINGLE_CLICK_DELAY);
                     lastClickTime = currentTime;
+                    startTime = System.currentTimeMillis();
                 } else if (clickCount == 1) {
                     long currentTime = System.currentTimeMillis();
                     if (waitingForSecondClick && (currentTime - lastClickTime <= DOUBLE_CLICK_DELAY)) {
@@ -86,12 +89,15 @@ public class OnDoubleClickListener implements View.OnTouchListener {
                 break;
             case MotionEvent.ACTION_MOVE:
                 // 在触摸移动事件中处理滑动事件
-                if (mCallback != null) {
+                long time = System.currentTimeMillis() - startTime;
+                /*滑动持续500毫米才执行*/
+                if (mCallback != null && time >= 200) {
                     mCallback.onTouch(v, event, touchStartX, startPosition);
                 }
                 break;
             case MotionEvent.ACTION_UP:
                 // 在触摸事件结束时可以执行一些操作
+                startTime = 0;
                 break;
         }
         return true;

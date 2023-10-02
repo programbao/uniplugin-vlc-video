@@ -93,7 +93,8 @@
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="00:00 / 00:00"
+                        android:text="00:00:00 / 00:00:00"
+                        android:textSize="@dimen/padding_13"
                         android:textColor="@android:color/white"
                         android:id="@+id/vlc_duration"
                         android:layout_gravity="center_vertical" />
@@ -148,6 +149,8 @@
                 android:textColor="@android:color/white"
                 android:textSize="14sp" />
         </LinearLayout>
+
+        <!--倍速选择控件-->
         <LinearLayout
             android:id="@+id/layout_control_middle_spend_select"
             android:layout_width="wrap_content"
@@ -250,24 +253,47 @@
             </HorizontalScrollView>
         </LinearLayout>
 
-        <!--        <LinearLayout-->
-<!--            android:id="@+id/layout_control_left"-->
-<!--            android:layout_width="@dimen/padding_50"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_alignParentLeft="true"-->
-<!--            android:gravity="center"-->
-<!--            android:orientation="vertical">-->
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_left_lock"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@drawable/shape_vlc_gb_control"-->
-<!--                android:padding="@dimen/padding_2"-->
-<!--                android:scaleType="centerInside"-->
-<!--                android:src="@drawable/video_lock_open_ic"-->
-<!--                android:visibility="visible" />-->
-<!--        </LinearLayout>-->
+        <!--状态加载组件-->
+        <LinearLayout
+            android:id="@+id/layout_control_middle_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/padding_160">
+                <!--加载view-->
+                <com.programbao.vlc_video.ENDownloadView
+                    android:id="@+id/vlc_loading"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="invisible" />
+
+                <!--出错提示-->
+                <TextView
+                    android:id="@+id/vlc_error_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/padding_60"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/corner_gray"
+                    android:marqueeRepeatLimit="0"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:singleLine="true"
+                    android:text="@string/video_try_reconnect"
+                    android:textColor="@color/core_white"
+                    android:textSize="@dimen/text_size_13"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+        </LinearLayout>
     </RelativeLayout>
 
 </RelativeLayout>

@@ -26,6 +26,7 @@ public class VlcVideoView extends FrameLayout {
     private LinearLayout mControlTopLayout;
     private LinearLayout mControlRightLayout;
     private LinearLayout mControlMiddleSpeedLayout;
+    private LinearLayout mControlMiddleStatusLayout;
     private RelativeLayout mControlBottomLayout;
     private RadioGroup radioGroupView;
     private TextView mTopTitle;
@@ -34,10 +35,14 @@ public class VlcVideoView extends FrameLayout {
 
     private TextView mSpeedBtn;
 
+    private TextView mVlvErrorTextView;
+
     private TextView vlcDuration;
 
     private SeekBar vlcSeekbar;
 
+    //加载的loading
+    private ENDownloadView mVlvLoadingView;
 
     //    全屏控件
     private ImageView fullControll;
@@ -74,8 +79,13 @@ public class VlcVideoView extends FrameLayout {
         mControlRightLayout = findViewById(R.id.layout_control_right);
         mSpeedBtn = findViewById(R.id.speed_btn);
         mControlMiddleSpeedLayout = findViewById(R.id.layout_control_middle_spend_select);
-
+        mControlMiddleStatusLayout = findViewById(R.id.layout_control_middle_status);
         radioGroupView = findViewById(R.id.radioGroup);
+
+        //加载的loading
+        mVlvLoadingView = findViewById(R.id.vlc_loading);
+        //错误提示
+        mVlvErrorTextView = findViewById(R.id.vlc_error_text);
 
         mPlayBtn = findViewById(R.id.iv_play);
 
@@ -85,7 +95,8 @@ public class VlcVideoView extends FrameLayout {
 //        mVideoView.setPlayerBufferingIndicator(mProgressbar);
 
     }
-
+    public TextView getmVlvErrorTextView() { return mVlvErrorTextView;};
+    public ENDownloadView getmVlvLoadingView() { return mVlvLoadingView; }
     public  RadioGroup getRadioGroupView() {return  radioGroupView; };
 
     public TextView getVlcDuration() { return  vlcDuration; };
@@ -97,6 +108,7 @@ public class VlcVideoView extends FrameLayout {
     public LinearLayout getmControlTopLayout() { return mControlTopLayout; };
     public LinearLayout getmControlRightLayout() { return mControlRightLayout; };
     public LinearLayout getmControlMiddleSpeedLayout() { return mControlMiddleSpeedLayout; };
+    public LinearLayout getmControlMiddleStatusLayout() { return mControlMiddleStatusLayout; };
     public RelativeLayout getmControlBottomLayout() { return mControlBottomLayout; };
 
     public SurfaceView getVideoView() {
