@@ -4,7 +4,12 @@
       "plugins": [
         {
           "type": "component",
-          "name": "programbao-vlc-video",
+          "name": "programbao-vlc-video-v1",
+          "class": "com.programbao.vlc_video.VlcVideo"
+        },
+        {
+          "type": "component",
+          "name": "programbao-vlc-video-v2",
           "class": "com.programbao.vlc_video.VlcVideoV2"
         }
       ]

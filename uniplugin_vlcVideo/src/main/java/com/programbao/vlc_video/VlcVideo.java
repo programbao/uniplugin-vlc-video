@@ -118,101 +118,101 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
 //                    }
 //                }, 5000); // 3秒delay
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-//                        initVLC();
-//                        changeToLandscape();
-//                        toggleFullscreen(true);
-
-                        // 创建全屏容器
-//                        fullscreenContainer = new FrameLayout(getContext());
-//                        fullscreenContainer.setLayoutParams(new FrameLayout.LayoutParams(
-//                                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
-
-                        // 添加播放器视图到全屏容器
-//                        View videoView = createVideoView(); // 创建播放器视图，这部分代码需要根据你的实际情况编写
-//                        vlcContainerView.removeView(surfaceView);
-
-                        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-
-                        new Handler().postDelayed(new Runnable() {
-                              @Override
-                              public void run() {
-                                  activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                                          WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                                  ViewGroup localViewGroup = (ViewGroup) activity.getWindow().getDecorView();
-                                  ((ViewGroup)getParent().getHostView()).removeView(getHostView());
-                                  FrameLayout.LayoutParams localLayoutParams = new FrameLayout.LayoutParams(-1, -1);
-                                  localViewGroup.addView(getHostView(), localLayoutParams);
-                                  surfaceView.post(new Runnable() {
-                                      @Override
-                                      public void run() {
-                                          new Handler().postDelayed(new Runnable() {
-                                              @Override
-                                              public void run() {
-                                                  // 在子线程中准备播放
-                                                  int width = surfaceView.getWidth();
-                                                  int height = surfaceView.getHeight();
-                                                  vlcVout.setVideoSurface(surfaceView.getHolder().getSurface(), surfaceView.getHolder());
-                                                  vlcVout.setWindowSize(width, height);
-                                                  vlcVout.attachViews();
-                                                  // setBringToFront();
-                                                  surfaceView.requestLayout();
-                                              }
-                                          }, 60000);
-                                      }
-                                  });
-                              }
-                        }, 200);
-
-//                        videoView.setLayoutParams(new ViewGroup.LayoutParams(
-//                                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//                        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
-//                        int screenWidth = displayMetrics.widthPixels;
-//                        int screenHeight = displayMetrics.heightPixels;
-//                        System.out.println("screenWidth:" + screenWidth + " screenHeight:" + screenHeight);
-//                        // 设置SurfaceView的宽度和高度
-////                        surfaceView.getLayoutParams().width = screenWidth;
-////                        surfaceView.getLayoutParams().height = screenHeight;
-//                        vlcVout.setWindowSize(screenWidth, screenHeight);
-//                        surfaceView.requestLayout();
-//                        fullscreenContainer.addView(videoView);
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+////                        initVLC();
+////                        changeToLandscape();
+////                        toggleFullscreen(true);
 //
-//                        // 将全屏容器添加到Activity的内容视图中
-//                        activity.getWindow().addContentView(fullscreenContainer, fullscreenContainer.getLayoutParams());
+//                        // 创建全屏容器
+////                        fullscreenContainer = new FrameLayout(getContext());
+////                        fullscreenContainer.setLayoutParams(new FrameLayout.LayoutParams(
+////                                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+//
+//                        // 添加播放器视图到全屏容器
+////                        View videoView = createVideoView(); // 创建播放器视图，这部分代码需要根据你的实际情况编写
+////                        vlcContainerView.removeView(surfaceView);
+//
+//                        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+//
+//                        new Handler().postDelayed(new Runnable() {
+//                              @Override
+//                              public void run() {
+//                                  activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                                          WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//                                  ViewGroup localViewGroup = (ViewGroup) activity.getWindow().getDecorView();
+//                                  ((ViewGroup)getParent().getHostView()).removeView(getHostView());
+//                                  FrameLayout.LayoutParams localLayoutParams = new FrameLayout.LayoutParams(-1, -1);
+//                                  localViewGroup.addView(getHostView(), localLayoutParams);
+//                                  surfaceView.post(new Runnable() {
+//                                      @Override
+//                                      public void run() {
+//                                          new Handler().postDelayed(new Runnable() {
+//                                              @Override
+//                                              public void run() {
+//                                                  // 在子线程中准备播放
+//                                                  int width = surfaceView.getWidth();
+//                                                  int height = surfaceView.getHeight();
+//                                                  vlcVout.setVideoSurface(surfaceView.getHolder().getSurface(), surfaceView.getHolder());
+//                                                  vlcVout.setWindowSize(width, height);
+//                                                  vlcVout.attachViews();
+//                                                  // setBringToFront();
+//                                                  surfaceView.requestLayout();
+//                                              }
+//                                          }, 60000);
+//                                      }
+//                                  });
+//                              }
+//                        }, 200);
+//
+////                        videoView.setLayoutParams(new ViewGroup.LayoutParams(
+////                                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+////                        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
+////                        int screenWidth = displayMetrics.widthPixels;
+////                        int screenHeight = displayMetrics.heightPixels;
+////                        System.out.println("screenWidth:" + screenWidth + " screenHeight:" + screenHeight);
+////                        // 设置SurfaceView的宽度和高度
+//////                        surfaceView.getLayoutParams().width = screenWidth;
+//////                        surfaceView.getLayoutParams().height = screenHeight;
+////                        vlcVout.setWindowSize(screenWidth, screenHeight);
+////                        surfaceView.requestLayout();
+////                        fullscreenContainer.addView(videoView);
+////
+////                        // 将全屏容器添加到Activity的内容视图中
+////                        activity.getWindow().addContentView(fullscreenContainer, fullscreenContainer.getLayoutParams());
+//
+//
+//                    }
+//                }, 3000); // 3秒delay
 
-
-                    }
-                }, 3000); // 3秒delay
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-////                        vlcContainerView.addView(surfaceView);
-//                        ViewGroup localViewGroup = (ViewGroup)getParent().getHostView();
-//                        View localView = getHostView();
-//                        localViewGroup.addView(localView, new FrameLayout.LayoutParams(-1, -1));
-//                        surfaceView.post(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                // 在子线程中准备播放
-//                                int width = surfaceView.getWidth();
-//                                int height = surfaceView.getHeight();
-////                                vlcVout.setVideoSurface(surfaceView.getHolder().getSurface(), surfaceView.getHolder());
-//                                vlcVout.setWindowSize(width, height);
-////                                vlcVout.attachViews();
-//                                System.out.println("2222width:" + width + " 22222height:" + height);
-////                                setBringToFront();
-//                                surfaceView.requestLayout();
-//                            }
-//                        });
-                    }
-                }, 6000);
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//////                        vlcContainerView.addView(surfaceView);
+////                        ViewGroup localViewGroup = (ViewGroup)getParent().getHostView();
+////                        View localView = getHostView();
+////                        localViewGroup.addView(localView, new FrameLayout.LayoutParams(-1, -1));
+////                        surfaceView.post(new Runnable() {
+////                            @Override
+////                            public void run() {
+////                                // 在子线程中准备播放
+////                                int width = surfaceView.getWidth();
+////                                int height = surfaceView.getHeight();
+//////                                vlcVout.setVideoSurface(surfaceView.getHolder().getSurface(), surfaceView.getHolder());
+////                                vlcVout.setWindowSize(width, height);
+//////                                vlcVout.attachViews();
+////                                System.out.println("2222width:" + width + " 22222height:" + height);
+//////                                setBringToFront();
+////                                surfaceView.requestLayout();
+////                            }
+////                        });
+//                    }
+//                }, 6000);
 
                 mMediaPlayer.play();
                 //设置沉浸式观影模式体验
-                activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//                activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 //永远不息屏
                 activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             }
@@ -230,61 +230,61 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
         });
     }
 
-    @JSMethod
-    public void setFullScreen () {
-        // 获取屏幕宽度和高度
-        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
-        int screenWidth = displayMetrics.widthPixels;
-        int screenHeight = displayMetrics.heightPixels;
-        System.out.println("screenWidth:" + screenWidth + " screenHeight:" + screenHeight);
-        // 设置SurfaceView的宽度和高度
-        surfaceView.getLayoutParams().width = screenWidth;
-        surfaceView.getLayoutParams().height = screenHeight;
-        vlcVout.setWindowSize(screenHeight, screenWidth);
-//        surfaceView.requestLayout();
-//        vlcVout.setAspectRatio(screenWidth + ":" + screenHeight);
-        mMediaPlayer.setAspectRatio(screenWidth + ":" + screenHeight);
-    }
+//    @JSMethod
+//    public void setFullScreen () {
+//        // 获取屏幕宽度和高度
+//        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
+//        int screenWidth = displayMetrics.widthPixels;
+//        int screenHeight = displayMetrics.heightPixels;
+//        System.out.println("screenWidth:" + screenWidth + " screenHeight:" + screenHeight);
+//        // 设置SurfaceView的宽度和高度
+//        surfaceView.getLayoutParams().width = screenWidth;
+//        surfaceView.getLayoutParams().height = screenHeight;
+//        vlcVout.setWindowSize(screenHeight, screenWidth);
+////        surfaceView.requestLayout();
+////        vlcVout.setAspectRatio(screenWidth + ":" + screenHeight);
+//        mMediaPlayer.setAspectRatio(screenWidth + ":" + screenHeight);
+//    }
 
     /* 切换横屏 */
-    @JSMethod(uiThread = true)
-    public void changeToLandscape() {
-        Log.d(TAG, "changeToLandscape");
-        JSONObject result = new JSONObject();
-        if (getInstance().getContext() instanceof Activity) {
-            Activity context = (Activity) getInstance().getContext();
-            PolyvScreenUtils.setLandscape(context);
-            //初始为横屏时，状态栏需要隐藏
-            PolyvScreenUtils.hideStatusBar(context);
-            setFullScreen();
-//            result.put("orientation", "portrait");
-        } else {
-            Log.e(TAG, "can not get Activity context");
-            result.put("errMsg", "can not get Activity context");
-        }
+//    @JSMethod(uiThread = true)
+//    public void changeToLandscape() {
+//        Log.d(TAG, "changeToLandscape");
+//        JSONObject result = new JSONObject();
+//        if (getInstance().getContext() instanceof Activity) {
+//            Activity context = (Activity) getInstance().getContext();
+//            PolyvScreenUtils.setLandscape(context);
+//            //初始为横屏时，状态栏需要隐藏
+//            PolyvScreenUtils.hideStatusBar(context);
+//            setFullScreen();
+////            result.put("orientation", "portrait");
+//        } else {
+//            Log.e(TAG, "can not get Activity context");
+//            result.put("errMsg", "can not get Activity context");
+//        }
+////        if (callback != null) {
+////            callback.invoke(result);
+////        }
+//    }
+
+    /* 切换竖屏 */
+//    @JSMethod(uiThread = true)
+//    public void changeToPortrait(JSONObject options, JSCallback callback) {
+//        Log.d(TAG, "changeToPortrait");
+//        JSONObject result = new JSONObject();
+//        if (getInstance().getContext() instanceof Activity) {
+//            Activity context = (Activity) getInstance().getContext();
+//            PolyvScreenUtils.setPortrait(context);
+//            PolyvScreenUtils.reSetStatusBar(context);
+////            result.put("orientation", "portrait");
+//        } else {
+//            Log.e(TAG, "can not get Activity context");
+//            result.put("errMsg", "can not get Activity context");
+//        }
 //        if (callback != null) {
 //            callback.invoke(result);
 //        }
-    }
-
-    /* 切换竖屏 */
-    @JSMethod(uiThread = true)
-    public void changeToPortrait(JSONObject options, JSCallback callback) {
-        Log.d(TAG, "changeToPortrait");
-        JSONObject result = new JSONObject();
-        if (getInstance().getContext() instanceof Activity) {
-            Activity context = (Activity) getInstance().getContext();
-            PolyvScreenUtils.setPortrait(context);
-            PolyvScreenUtils.reSetStatusBar(context);
-//            result.put("orientation", "portrait");
-        } else {
-            Log.e(TAG, "can not get Activity context");
-            result.put("errMsg", "can not get Activity context");
-        }
-        if (callback != null) {
-            callback.invoke(result);
-        }
-    }
+//    }
 
 
     // 暂停
@@ -345,23 +345,20 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
         mMediaPlayer.release();
         mLibVLC.release();
     }
-    void callbackEvent(String paramString, Map paramMap)
-    {
-        int i = getEvents().size();
-        int j = 0;
-        int m;
-        for (int k = 0; ; k++)
-        {
-            m = j;
-            if (k >= i)
+    void callbackEvent(String paramString, Map paramMap) {
+        int size = getEvents().size();
+        int startNum = 0;
+        int v;
+        for (int i = 0; ; i++) {
+            v = startNum;
+            if (i >= size)
                 break;
-            if (!((String)getEvents().get(k)).equals(paramString))
+            if (!((String) getEvents().get(i)).equals(paramString))
                 continue;
-            m = 1;
+            v = 1;
             break;
         }
-        if (m != 0)
-        {
+        if (v != 0) {
             HashMap localHashMap = new HashMap();
             if (paramMap != null)
                 localHashMap.put("detail", paramMap);
@@ -390,25 +387,25 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
         int eventType = paramEvent.type;
 
         switch (eventType) {
-            case 256:
+            case MediaPlayer.Event.MediaChanged:
                 log("MediaChanged");
                 break;
-            case 258:
+            case MediaPlayer.Event.Opening:
                 callbackEvent("onOpening", null);
                 break;
-            case 262:
+            case MediaPlayer.Event.Stopped:
                 callbackEvent("onPlayStopped", null);
                 break;
-            case 260:
+            case MediaPlayer.Event.Playing:
                 callbackEvent("onPlaying", null);
                 break;
-            case 261:
+            case MediaPlayer.Event.Paused:
                 callbackEvent("onPlayPaused", null);
                 break;
-            case 266:
+            case MediaPlayer.Event.EncounteredError:
                 callbackEvent("onPlayError", null);
                 break;
-            case 267:
+            case MediaPlayer.Event.TimeChanged:
                 Map<String, Object> timeChangedMap = new HashMap<>();
                 long currentMilliseconds = paramEvent.getTimeChanged(); // 这是VLC返回的时长值
 
@@ -416,27 +413,27 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
                 timeChangedMap.put("currentTimeFormat", getVideoFomatTime(currentMilliseconds));
                 callbackEvent("onTimeChanged", timeChangedMap);
                 break;
-            case 268:
+            case MediaPlayer.Event.PositionChanged:
                 Map<String, Object> positionChangedMap = new HashMap<>();
                 positionChangedMap.put("position", Float.valueOf(paramEvent.getPositionChanged()));
                 callbackEvent("onPositionChange", positionChangedMap);
                 break;
-            case 269:
+            case MediaPlayer.Event.SeekableChanged:
                 log("SeekableChanged: " + paramEvent.getSeekable());
                 break;
-            case 270:
+            case MediaPlayer.Event.PausableChanged:
                 log("PausableChanged: " + paramEvent.getPausable());
                 break;
-            case 276:
+            case MediaPlayer.Event.ESAdded:
                 callbackEvent("ESAdded", null);
                 break;
-            case 277:
+            case MediaPlayer.Event.ESDeleted:
                 callbackEvent("ESDeleted", null);
                 break;
-            case 278:
+            case MediaPlayer.Event.ESSelected:
                 callbackEvent("ESSelected", null);
                 break;
-            case 273:
+            case MediaPlayer.Event.LengthChanged:
                 Map<String, Object> lengthChangedMap = new HashMap<>();
                 long milliseconds = paramEvent.getLengthChanged(); // 这是VLC返回的时长值
 
@@ -444,10 +441,14 @@ public class VlcVideo extends WXComponent<SurfaceView>  {
                 lengthChangedMap.put("totalTimeFormat", getVideoFomatTime(milliseconds));
                 callbackEvent("onTotalTime", lengthChangedMap);
                 break;
-            case 286:
+            case MediaPlayer.Event.EndReached:
+                mMediaPlayer.stop();
+                callbackEvent("onPlayEnd", null);
+                break;
+            case MediaPlayer.Event.RecordChanged:
                 log("RecordChanged: " + paramEvent.getRecordPath());
                 break;
-            case 274:
+            case MediaPlayer.Event.Vout:
                 log("Vout: " + paramEvent.getVoutCount());
                 break;
             default:

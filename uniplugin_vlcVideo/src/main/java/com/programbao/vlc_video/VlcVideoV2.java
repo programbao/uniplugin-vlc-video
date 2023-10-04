@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.OrientationEventListener;
@@ -102,12 +103,18 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
     private String currentPlayProtocol;
     private String currentPlayUrl;
 
+
     private IVLCVout vlcVout;
     Activity activity; // 在初始化时传入
 
     private boolean isFullscreen = false; // 标记是否处于全屏模式
     private boolean isPlay = false; // 标记是否处于播放
+
+    private boolean isFirstPlay = true; //  是否是第一次播放
     private boolean isShowMiddleSelectSpeed = false; // 标记是否处于倍速控件选择
+    private int seekStartProgress; // 记录拖动开始时的进度
+
+    private int initVideoHeight;
     ImageView fullControl;
     private OrientationEventListener orientationEventListener;  // 横竖屏变化事件监听
 
@@ -264,18 +271,36 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 Log.v("NEW POS", "pos is ----  : " + i);
-                if (i != 0)
-                    mMediaPlayer.setPosition(((float) i / 100.0f));
+//                if (i != 0)
+//                    mMediaPlayer.setPosition(((float) i / 100.0f));
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
+// 拖动开始时记录当前进度
+                seekStartProgress = vlcSeekbar.getProgress();
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                // 拖动结束时计算拖动的距离，并设置播放进度
+                int seekEndProgress = vlcSeekbar.getProgress();
+                int deltaProgress = seekEndProgress - seekStartProgress;
 
+                // 计算拖动的百分比
+                float deltaPercentage = (float) deltaProgress / vlcSeekbar.getMax();
+
+                // 获取当前播放器的位置
+                float currentPosition = mMediaPlayer.getPosition();
+
+                // 计算新的位置
+                float newPosition = currentPosition + deltaPercentage;
+
+                // 确保新位置在合法范围内
+                newPosition = Math.max(0.0f, Math.min(1.0f, newPosition));
+
+                // 设置新的播放进度
+                mMediaPlayer.setPosition(newPosition);
             }
         });
         /*倍速控件点击*/
@@ -462,6 +487,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
 //                    width = 1080;
 //                }
                 System.out.println("width:" + width + " height:" + height);
+                int initVideoHeight = height;
                 vlcVout.setWindowSize(width, height);
                 vlcVout.setVideoSurface(surfaceView.getHolder().getSurface(), surfaceView.getHolder());
                 vlcVout.attachViews();
@@ -490,7 +516,11 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
 //                mMediaPlayer.play();
 //                mPlayBtn.setImageResource(R.drawable.player_pause);
                 mPlayBtn.setImageResource(R.drawable.player_play);
-                isPlay = true;
+                if (!isFirstPlay) {
+                    mMediaPlayer.play();
+                    mPlayBtn.setImageResource(R.drawable.player_pause);
+                    isPlay = true;
+                }
                 /*屏幕常亮*/
                 activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                 /*关闭常亮*/
@@ -503,6 +533,9 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
         mTitle = title;
         mTopTitle.setText(mTitle + "");
     }
+
+
+
     public void handlePlay() {
         if (isPlay) {
             pause(null, null);
@@ -630,6 +663,13 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                 ViewGroup localViewGroup = (ViewGroup) activity.getWindow().getDecorView();
                 ((ViewGroup) getParent().getHostView()).removeView(getHostView());
                 FrameLayout.LayoutParams localLayoutParams = new FrameLayout.LayoutParams(-1, -1);
+
+                DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
+                int screenWidth = displayMetrics.widthPixels;
+                int screenHeight = displayMetrics.heightPixels;
+
+                /*设置图像比例*/
+                mMediaPlayer.setAspectRatio(screenWidth + ":" + (screenHeight - 100));
                 localViewGroup.addView(getHostView(), localLayoutParams);
                 adjustSurfaceView();
                 if (callback != null) {
@@ -662,6 +702,10 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                 View localView = getHostView();
                 localViewGroup.addView(localView, new FrameLayout.LayoutParams(-1, -1));
 
+                /*设置视频比例*/
+                int width = surfaceView.getWidth();
+                int height = surfaceView.getHeight();
+                mMediaPlayer.setAspectRatio(width + ":" + initVideoHeight);
                 adjustSurfaceView();
                 if (callback != null) {
                     callback.invoke(isFullscreen);
@@ -675,29 +719,46 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
 
     // 隐藏导航栏
     public void hideNavigationBar() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        } else {
-            View decorView = activity.getWindow().getDecorView();
-            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-            decorView.setSystemUiVisibility(uiOptions);
-        }
+
+        View decorView = activity.getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+//            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        } else {
+//            View decorView = activity.getWindow().getDecorView();
+//            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//            int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                    | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+//            decorView.setSystemUiVisibility(uiOptions);
+//        }
     }
 
     // 显示导航栏
     public void showNavigationBar() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        } else {
-            View decorView = activity.getWindow().getDecorView();
-            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            int uiOptions = View.SYSTEM_UI_FLAG_VISIBLE;
-            decorView.setSystemUiVisibility(uiOptions);
-        }
+        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        View decorView = activity.getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_VISIBLE;
+        decorView.setSystemUiVisibility(uiOptions);
+//        View decorView = activity.getWindow().getDecorView();
+//        int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+//        decorView.setSystemUiVisibility(uiOptions);
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+//            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        } else {
+//            View decorView = activity.getWindow().getDecorView();
+//            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//            int uiOptions = View.SYSTEM_UI_FLAG_VISIBLE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+//            decorView.setSystemUiVisibility(uiOptions);
+//        }
     }
 
     //    调整播放器视图
@@ -813,22 +874,22 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
     }
 
     void callbackEvent(String paramString, Map paramMap) {
-        int i = getEvents().size();
-        int j = 0;
-        int m;
-        for (int k = 0; ; k++) {
-            m = j;
-            if (k >= i)
+        int size = getEvents().size();
+        int startNum = 0;
+        int v;
+        for (int i = 0; ; i++) {
+            v = startNum;
+            if (i >= size)
                 break;
-            if (!((String) getEvents().get(k)).equals(paramString))
+            if (!((String) getEvents().get(i)).equals(paramString))
                 continue;
-            m = 1;
+            v = 1;
             break;
         }
-        if (m != 0) {
+        if (v != 0) {
             HashMap localHashMap = new HashMap();
             if (paramMap != null)
-                localHashMap.put("detail", paramMap);
+                localHashMap.put("data", paramMap);
             fireEvent(paramString, localHashMap);
         }
     }
@@ -890,6 +951,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                 timeChangedMap.put("time", Long.valueOf(currentMilliseconds));
                 timeChangedMap.put("currentTimeFormat", currentTimeFormat);
                 callbackEvent("onTimeChanged", timeChangedMap);
+
                 vlcDuration.setText(currentTimeFormat + " / " + totalTimeFormat);
                 vlcSeekbar.setProgress((int) (mMediaPlayer.getPosition() * 100));
                 break;
@@ -920,6 +982,11 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                 lengthChangedMap.put("time", Long.valueOf(milliseconds));
                 lengthChangedMap.put("totalTimeFormat", totalTimeFormat);
                 callbackEvent("onTotalTime", lengthChangedMap);
+                isFirstPlay = false;
+                break;
+            case MediaPlayer.Event.EndReached:
+                mMediaPlayer.stop();
+                callbackEvent("onPlayEnd", null);
                 break;
             case MediaPlayer.Event.RecordChanged:
                 log("RecordChanged: " + paramEvent.getRecordPath());

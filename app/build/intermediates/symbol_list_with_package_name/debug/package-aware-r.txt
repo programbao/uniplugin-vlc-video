@@ -2491,6 +2491,7 @@ id labeled
 id largeLabel
 id layout_control_bottom
 id layout_control_middle_spend_select
+id layout_control_middle_status
 id layout_control_right
 id layout_control_top
 id layout_footer
@@ -2736,6 +2737,8 @@ id viewpager
 id visible
 id vlc_container
 id vlc_duration
+id vlc_error_text
+id vlc_loading
 id vlc_seekbar
 id vs_op
 id vs_op_sub
@@ -3837,7 +3840,6 @@ style Theme_MaterialComponents_Light_NoActionBar
 style Theme_MaterialComponents_Light_NoActionBar_Bridge
 style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
-style Theme_uniplugin_vlcVideo
 style ThemeNoTitleBar
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
