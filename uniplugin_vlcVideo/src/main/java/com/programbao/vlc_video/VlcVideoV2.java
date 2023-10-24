@@ -669,7 +669,7 @@ public class VlcVideoV2 extends WXComponent<RelativeLayout> {
                 int screenHeight = displayMetrics.heightPixels;
 
                 /*设置图像比例*/
-                mMediaPlayer.setAspectRatio(screenWidth + ":" + (screenHeight - 100));
+                mMediaPlayer.setAspectRatio(screenWidth + ":" + (screenHeight));
                 localViewGroup.addView(getHostView(), localLayoutParams);
                 adjustSurfaceView();
                 if (callback != null) {

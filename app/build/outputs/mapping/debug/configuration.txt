@@ -378,15 +378,15 @@
 
 
 # End of content from D:\Users\Desktop\uniplugin-vlc-video\app\build\intermediates\aapt_proguard_file\debug\aapt_rules.txt
-# The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\6340ab3b62f23c964870dc1673c3b0f1\jetified-android-gif-drawable-release@1.2.23\proguard.txt
+# The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\b53954eb11ea7cb665c80a50021f14ba\jetified-android-gif-drawable-release@1.2.23\proguard.txt
 -keep public class pl.droidsonroids.gif.GifIOException{<init>(int, java.lang.String);}
 #Prevents warnings for consumers not using AndroidX
 -dontwarn androidx.annotation.**
 
-# End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\6340ab3b62f23c964870dc1673c3b0f1\jetified-android-gif-drawable-release@1.2.23\proguard.txt
-# The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\cb3ac3fc40be5e28d038fada210414e1\jetified-oaid_sdk_1.0.25\proguard.txt
+# End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\b53954eb11ea7cb665c80a50021f14ba\jetified-android-gif-drawable-release@1.2.23\proguard.txt
+# The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\4e4afa857feb2df4700e933b5485959d\jetified-oaid_sdk_1.0.25\proguard.txt
 
-# End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\cb3ac3fc40be5e28d038fada210414e1\jetified-oaid_sdk_1.0.25\proguard.txt
+# End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\4e4afa857feb2df4700e933b5485959d\jetified-oaid_sdk_1.0.25\proguard.txt
 # The proguard configuration file for the following section is D:\Users\Desktop\uniplugin-vlc-video\uniplugin_vlcVideo\build\intermediates\consumer_proguard_dir\debug\lib0\proguard.txt
 #module扩展的混淆
 -keep public class * extends com.taobao.weex.common.WXModule{*;}
@@ -469,7 +469,7 @@
     public boolean isLayoutSuppressed();
 }
 # End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\c85e1f195321245fafe1a599b5dddf47\recyclerview-1.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\f71ca817687479b80aa7417020f94116\jetified-glide-4.9.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\792e4a63e5e154e9f9ba9a4f70ee585b\jetified-glide-4.9.0\proguard.txt
 -keep public class * implements com.bumptech.glide.module.GlideModule
 -keep public class * extends com.bumptech.glide.module.AppGlideModule
 -keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
@@ -479,7 +479,7 @@
 
 # Uncomment for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
-# End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\f71ca817687479b80aa7417020f94116\jetified-glide-4.9.0\proguard.txt
+# End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\792e4a63e5e154e9f9ba9a4f70ee585b\jetified-glide-4.9.0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\8b45492b1bedb5d0c63e879e1653bfce\webkit-1.3.0\proguard.txt
 # Copyright 2018 The Chromium Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
@@ -678,7 +678,7 @@
 }
 
 # End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\bcc77714e7cb792f2377ee21a4d18180\rules\lib\META-INF\proguard\androidx-annotations.pro
-# The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\eb0fd88cf16d8249a3ca8f5d9d1e92c2\jetified-fbcore-1.13.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\User\.gradle\caches\transforms-2\files-2.1\37bbe448a78016c3a65edb5a5e44990d\jetified-fbcore-1.13.0\proguard.txt
 # Keep our interfaces so they can be used by other ProGuard rules.
 # See http://sourceforge.net/p/proguard/bugs/466/
 -keep,allowobfuscation @interface com.facebook.common.internal.DoNotStrip
@@ -708,7 +708,7 @@
 -dontwarn com.android.volley.toolbox.**
 -dontwarn com.facebook.infer.**
 
-# End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\eb0fd88cf16d8249a3ca8f5d9d1e92c2\jetified-fbcore-1.13.0\proguard.txt
+# End of content from C:\Users\User\.gradle\caches\transforms-2\files-2.1\37bbe448a78016c3a65edb5a5e44990d\jetified-fbcore-1.13.0\proguard.txt
 # The proguard configuration file for the following section is <unknown>
 -ignorewarnings
 # End of content from <unknown>
